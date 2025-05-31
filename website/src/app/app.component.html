@@ -1,0 +1,17 @@
+<main>
+    @if (loaded) {
+        @if (errored) {
+            <div class="error">
+                <h1>Error</h1>
+                <p>There was an error loading the application.</p>
+            </div>
+        } @else {
+            <router-outlet />
+        }
+    } @else {
+        <div class="loading">
+            <h1>Loading...</h1>
+            <p>Please wait while the application is loading.</p>
+        </div>
+    }
+</main>

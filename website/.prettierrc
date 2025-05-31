@@ -1,0 +1,20 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts", "*.html", "*.json", "*.scss"],
+      "options": {
+        "useTabs": false,
+        "jsxSingleQuote": true,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "printWidth": 255
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+C:\Coding\Wedding\net\TheWedding.Shared\bin\Debug\net9.0\TheWedding.Shared.deps.json
+C:\Coding\Wedding\net\TheWedding.Shared\bin\Debug\net9.0\TheWedding.Shared.dll
+C:\Coding\Wedding\net\TheWedding.Shared\bin\Debug\net9.0\TheWedding.Shared.pdb
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.csproj.AssemblyReference.cache
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.AssemblyInfoInputs.cache
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.AssemblyInfo.cs
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.csproj.CoreCompileInputs.cache
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.dll
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\refint\TheWedding.Shared.dll
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\TheWedding.Shared.pdb
+C:\Coding\Wedding\net\TheWedding.Shared\obj\Debug\net9.0\ref\TheWedding.Shared.dll

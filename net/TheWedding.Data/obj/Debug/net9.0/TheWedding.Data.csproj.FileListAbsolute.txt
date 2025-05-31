@@ -1,0 +1,15 @@
+C:\Coding\Wedding\net\TheWedding.Data\bin\Debug\net9.0\TheWedding.Data.deps.json
+C:\Coding\Wedding\net\TheWedding.Data\bin\Debug\net9.0\TheWedding.Data.dll
+C:\Coding\Wedding\net\TheWedding.Data\bin\Debug\net9.0\TheWedding.Data.pdb
+C:\Coding\Wedding\net\TheWedding.Data\bin\Debug\net9.0\TheWedding.Shared.dll
+C:\Coding\Wedding\net\TheWedding.Data\bin\Debug\net9.0\TheWedding.Shared.pdb
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.csproj.AssemblyReference.cache
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.AssemblyInfoInputs.cache
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.AssemblyInfo.cs
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.csproj.CoreCompileInputs.cache
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWeddi.85507095.Up2Date
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.dll
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\refint\TheWedding.Data.dll
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\TheWedding.Data.pdb
+C:\Coding\Wedding\net\TheWedding.Data\obj\Debug\net9.0\ref\TheWedding.Data.dll

@@ -1,0 +1,96 @@
+@if (!users()) {
+    <progress class="progress is-small is-primary" max="100"></progress>
+} @else {
+    <div class="select">
+        <select [ngModel]="activeView()" (ngModelChange)="activeView.set($event)">
+            <option [ngValue]="null">Active / Inactive</option>
+            <option [ngValue]="true">Active</option>
+            <option [ngValue]="false">Inactive</option>
+        </select>
+    </div>
+
+    <div class="field mt-3">
+        <div class="control">
+            <input class="input" type="text" [ngModel]="filter()" (ngModelChange)="filter.set($event)" placeholder="Search" />
+        </div>
+    </div>
+    <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Dob</th>
+                <th>IP</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        @if (users()?.length > 20) {
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Dob</th>
+                    <th>IP</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        }
+        <tbody>
+            @for (user of users(); track $index) {
+                <tr [class.is-disabled]="user.disabled">
+                    <td>{{ user.id }}</td>
+                    <td>
+                        @if (user.nickname) {
+                            <strong>{{ user.nickname }} </strong> &mdash;
+                        }
+                        {{ user.name }}
+                    </td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.dob | date: 'dd MMM yyyy' }}</td>
+                    <td>{{ user.updatedAt | date: 'dd MMM yyyy, h.mm a' }}</td>
+                    <td class="has-text-right">
+                        <button class="button is-small mr-2" [class.is-warning]="!user.disabled" [class.is-success]="user.disabled" (click)="toggleDisable(user)">
+                            @if (user.disabled) {
+                                Enable
+                            } @else {
+                                Disable
+                            }
+                        </button>
+                        <button class="button is-small is-danger mr-2" (click)="deleteUser(user)">Delete</button>
+                        <button class="button is-small" (click)="info = null; selected.set(user)">View Info</button>
+                    </td>
+                </tr>
+            } @empty {
+                <tr>
+                    <td colspan="8">No users found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="modal" [class.is-active]="!!selected()">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ selected()?.name }} Information</p>
+                <button class="delete" aria-label="close" (click)="selected.set(null)"></button>
+            </header>
+            <section class="modal-card-body">
+                @if (!info) {
+                    <progress class="progress is-small is-primary" max="100"></progress>
+                } @else {
+                    Todo!
+                }
+            </section>
+            <footer class="modal-card-foot">
+                <div class="buttons">
+                    <button class="button" (click)="selected.set(null)">Close</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+}
