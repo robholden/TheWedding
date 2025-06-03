@@ -1,0 +1,23 @@
+{
+    "check_rsvp": {
+        "title": "RSVP",
+        "description": "Enter your information to access your RSVP",
+        "name": "Name",
+        "submit": "Find Details"
+    },
+    "forms": {
+        "required": "This field is required.",
+        "dob": "Date of Birth"
+    },
+    "langs": {
+        "en": "English",
+        "in-ml": "Malayalam"
+    },
+    "api_errors": {
+        "unknown": "An unknown error occurred.",
+        "rsvp_missing": "No details found for the information provided.",
+        "user_not_found": "User not found.",
+        "user_disabled": "User account is disabled.",
+        "session_expired": "Session expired. Please log in again."
+    }
+}

@@ -26,11 +26,18 @@ public static class DataStartup
         // Create the database if it doesn't exist
         context.Database.EnsureCreated();
 
-        // Seed products
-        // Uncomment if you have a seeding method
+        // Ensure robertandreshma@gmail.com is a user
+        foreach (var email in User.AdminEmails)
+        {
+            if (!context.Set<User>().Any(u => u.Email == email))
+            {
+                context.Set<User>().Add(new User { FirstName = "Robert", LastName = "Reshma", Dob = DateOnly.FromDateTime(new(2023, 7, 23)), Email = email }.SetMatchName());
+                context.SaveChanges();
 
-        Console.WriteLine("... App Started");
-        Console.WriteLine("");
-        Console.WriteLine("");
+                Console.WriteLine("...");
+                Console.WriteLine("...");
+                Console.WriteLine("... Added admin user: " + email);
+            }
+        }
     }
 }

@@ -1,0 +1,203 @@
+<div class="container">
+    @if (!users()) {
+        <progress class="progress is-small is-primary" max="100"></progress>
+    } @else {
+        <div class="is-flex is-flex-direction-row">
+            <div class="field is-flex-grow-1 mr-3 mb-0">
+                <div class="control">
+                    <input class="input" type="text" [ngModel]="filter()" (ngModelChange)="filter.set($event)" placeholder="Search" />
+                </div>
+            </div>
+
+            <button class="button my-auto ml-auto" (click)="get()">
+                <span>Reload</span>
+            </button>
+
+            <input type="file" id="importFile" class="is-hidden" (change)="import($any($event.target)?.files?.[0], $event)" accept=".csv" #importEl />
+            <button class="button is-info ml-2" (click)="importEl.click()">
+                <span>Import</span>
+            </button>
+
+            <button class="button is-primary my-auto ml-2" (click)="edit()">
+                <span>New Guest</span>
+            </button>
+        </div>
+
+        <table class="table is-striped is-hoverable is-fullwidth mt-4">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Plus One</th>
+                    <th>Email</th>
+                    <th>Dob</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @if (users()?.length > 20) {
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Plus One</th>
+                        <th>Email</th>
+                        <th>Dob</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            }
+            <tbody>
+                @for (user of users(); track $index) {
+                    <tr [class.is-disabled]="user.disabled">
+                        <td>
+                            @if (user.plusOnes?.length) {
+                                <i class="fas fa-star" title="Primary Guest"></i>
+                            }
+
+                            @if (user.nickname) {
+                                <strong> {{ user.nickname }} </strong> &mdash;
+                            }
+                            {{ user.name }}
+                        </td>
+                        <td>
+                            @if (user.plusOne) {
+                                {{ user.plusOne.name }}
+                            } @else if (user.plusOnes?.length) {
+                                @for (plusOne of user.plusOnes; track plusOne.id) {
+                                    {{ plusOne.name }}
+                                    @if (!$last) {
+                                        //
+                                    }
+                                }
+                            } @else {
+                                <span class="has-text-grey">None</span>
+                            }
+                        </td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.dob | date: 'dd MMM yyyy' }}</td>
+                        <td class="has-text-right">
+                            <button class="button is-small" [class.is-warning]="!user.disabled" [class.is-success]="user.disabled" (click)="toggleDisable(user)">
+                                @if (user.disabled) {
+                                    Enable
+                                } @else {
+                                    Disable
+                                }
+                            </button>
+                            <button class="button is-small is-danger ml-2" (click)="deleteUser(user)">Delete</button>
+                            <button class="button is-small ml-2" (click)="editing.set(user)">Edit</button>
+                            <!-- <button class="button is-small" (click)="info = null; selected.set(user)">View Info</button> -->
+                        </td>
+                    </tr>
+                } @empty {
+                    <tr>
+                        <td colspan="8">No users found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="modal" [class.is-active]="!!editing()">
+            <form [formGroup]="editingForm" (submit)="saveUser()">
+                <div class="modal-background"></div>
+                <div class="modal-card is-large">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">{{ editing()?.id ? 'Edit ' + editing().name : 'New Guest' }}</p>
+                        <button type="button" class="delete" aria-label="close" (click)="editing.set(null)"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <div class="field">
+                            <label class="label">First Name</label>
+                            <div class="control">
+                                <input class="input" type="text" formControlName="firstName" placeholder="First Name" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Last Name</label>
+                            <div class="control">
+                                <input class="input" type="text" formControlName="lastName" placeholder="Last Name" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Nickname</label>
+                            <div class="control">
+                                <input class="input" type="text" formControlName="nickname" placeholder="Nickname (optional)" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" formControlName="email" placeholder="Email (optional)" />
+                            </div>
+                        </div>
+
+                        <!-- Choose plus one from user list -->
+                        <div class="field">
+                            <label class="label">
+                                Guest Of
+
+                                @if (editingForm.controls['plusOneId'].disabled) {
+                                    <small class="has-text-danger">&mdash; {{ editing()?.plusOnes?.length }} plus ones are assigned to this guest</small>
+                                }
+                            </label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select formControlName="plusOneId">
+                                        <option [ngValue]="null">None</option>
+                                        @for (user of users(); track user.id) {
+                                            @if (user.id !== editing()?.id) {
+                                                <option [value]="user.id">{{ user.name }}</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Date of Birth</label>
+                            <div class="control">
+                                <input class="input" type="date" formControlName="dob" />
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <div class="buttons">
+                            <button type="button" class="button" (click)="editing.set(null)">Close</button>
+
+                            <button type="submit" class="button is-primary ml-1" [disabled]="editingForm.invalid || editingForm.pristine || editingForm.pending">
+                                @if (editing()?.id) {
+                                    Update Guest
+                                } @else {
+                                    Create Guest
+                                }
+                            </button>
+                        </div>
+                    </footer>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal" [class.is-active]="!!selected()">
+            <div class="modal-background"></div>
+            <div class="modal-card is-large">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">{{ selected()?.name }} Information</p>
+                    <button class="delete" aria-label="close" (click)="selected.set(null)"></button>
+                </header>
+                <section class="modal-card-body">
+                    @if (!info) {
+                        <progress class="progress is-small is-primary" max="100"></progress>
+                    } @else {
+                        Todo!
+                    }
+                </section>
+                <footer class="modal-card-foot">
+                    <div class="buttons">
+                        <button class="button" (click)="selected.set(null)">Close</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    }
+</div>

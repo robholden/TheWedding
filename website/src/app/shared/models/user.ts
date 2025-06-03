@@ -1,11 +1,15 @@
 export type User = {
-    id: string;
-    name: string;
+    id?: string;
+    name?: string;
     firstName: string;
     lastName: string;
     nickname: string;
     email: string;
-    dob: Date;
-    disabled: boolean;
-    updatedAt: Date;
+    dob: Date | string;
+    disabled?: boolean;
+    updatedAt?: Date;
+    isAdmin?: boolean;
+    plusOneId?: string;
+    plusOne?: User;
+    plusOnes?: User[];
 };

@@ -1,90 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Coding\\Wedding\\net\\",
+  "WorkspaceRootPath": "C:\\Coding\\TheWedding\\net\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\repos\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\repos\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\repos\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\repos\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\controllers\\admin\\useradmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\controllers\\admin\\useradmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\auth\\basicauthhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\auth\\basicauthhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\auth\\authattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\auth\\authattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\auth\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\auth\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\models\\authtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\models\\authtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\thewedding\\net\\thewedding.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\auth\\basicauthattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\auth\\basicauthattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\thewedding\\net\\thewedding.data\\repos\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\repos\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77DCA63-34E1-4AE0-2A4B-DC299AB15209}|TheWedding.Shared\\TheWedding.Shared.csproj|c:\\coding\\wedding\\net\\thewedding.shared\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B77DCA63-34E1-4AE0-2A4B-DC299AB15209}|TheWedding.Shared\\TheWedding.Shared.csproj|solutionrelative:thewedding.shared\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\thewedding\\net\\thewedding.api\\controllers\\admin\\useradmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\controllers\\admin\\useradmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\thewedding\\net\\thewedding.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\dateconverterutc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\dateconverterutc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\thewedding\\net\\thewedding.data\\repos\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\repos\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\exceptions\\exceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\exceptions\\exceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\thewedding\\net\\thewedding.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\datastartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\datastartup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\thewedding\\net\\thewedding.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|c:\\coding\\wedding\\net\\thewedding.data\\thewedding.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1AE4F831-14DB-D2D7-4382-575FCC1B9D7F}|TheWedding.Data\\TheWedding.Data.csproj|solutionrelative:thewedding.data\\thewedding.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|c:\\coding\\wedding\\net\\thewedding.api\\ngrok.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{D5DABBF9-E644-F831-6B45-57BDF493EC42}|TheWedding.Api\\TheWedding.Api.csproj|solutionrelative:thewedding.api\\ngrok.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,275 +50,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserAdminController.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
-              "RelativeToolTip": "TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T10:53:27.056Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthAttribute.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\AuthAttribute.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Auth\\AuthAttribute.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\AuthAttribute.cs",
-              "RelativeToolTip": "TheWedding.Api\\Auth\\AuthAttribute.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T10:41:30.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\UserController.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "TheWedding.Api\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\UserController.cs",
               "RelativeToolTip": "TheWedding.Api\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:42:12.823Z",
+              "WhenOpened": "2025-06-03T20:30:59.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TheWedding.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TheWedding.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T20:30:06.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "BasicAuthHandler.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\BasicAuthHandler.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Auth\\BasicAuthHandler.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\BasicAuthHandler.cs",
-              "RelativeToolTip": "TheWedding.Api\\Auth\\BasicAuthHandler.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwEIAAAAMAAAAAAAAAA==",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "TheWedding.Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\AppDbContext.cs",
+              "RelativeToolTip": "TheWedding.Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:37:51.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BasicAuthAttribute.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\BasicAuthAttribute.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Auth\\BasicAuthAttribute.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\BasicAuthAttribute.cs",
-              "RelativeToolTip": "TheWedding.Api\\Auth\\BasicAuthAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:36:57.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DateConverterUtc.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\DateConverterUtc.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\DateConverterUtc.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\DateConverterUtc.cs",
-              "RelativeToolTip": "TheWedding.Api\\DateConverterUtc.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:36:31.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AppSettings.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Shared\\AppSettings.cs",
-              "RelativeDocumentMoniker": "TheWedding.Shared\\AppSettings.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Shared\\AppSettings.cs",
-              "RelativeToolTip": "TheWedding.Shared\\AppSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:34:26.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\JwtService.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Auth\\JwtService.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Auth\\JwtService.cs",
-              "RelativeToolTip": "TheWedding.Api\\Auth\\JwtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:33:33.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthToken.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Models\\AuthToken.cs",
-              "RelativeDocumentMoniker": "TheWedding.Data\\Models\\AuthToken.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Models\\AuthToken.cs",
-              "RelativeToolTip": "TheWedding.Data\\Models\\AuthToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:28:42.481Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthRepo.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Repos\\AuthRepo.cs",
-              "RelativeDocumentMoniker": "TheWedding.Data\\Repos\\AuthRepo.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Repos\\AuthRepo.cs",
-              "RelativeToolTip": "TheWedding.Data\\Repos\\AuthRepo.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwEcAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:28:11.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "TheWedding.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:23:27.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRepo.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Repos\\UserRepo.cs",
-              "RelativeDocumentMoniker": "TheWedding.Data\\Repos\\UserRepo.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Repos\\UserRepo.cs",
-              "RelativeToolTip": "TheWedding.Data\\Repos\\UserRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:15:35.564Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "TheWedding.Api\\appsettings.Development.json",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\appsettings.Development.json",
-              "RelativeToolTip": "TheWedding.Api\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-31T09:13:09.68Z",
+              "WhenOpened": "2025-06-03T20:19:34.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "AuthRepo.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Repos\\AuthRepo.cs",
+              "RelativeDocumentMoniker": "TheWedding.Data\\Repos\\AuthRepo.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Repos\\AuthRepo.cs",
+              "RelativeToolTip": "TheWedding.Data\\Repos\\AuthRepo.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAFMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T20:14:06.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Repos\\UserRepo.cs",
+              "RelativeDocumentMoniker": "TheWedding.Data\\Repos\\UserRepo.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Repos\\UserRepo.cs",
+              "RelativeToolTip": "TheWedding.Data\\Repos\\UserRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T20:01:43.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Models\\User.cs",
               "RelativeDocumentMoniker": "TheWedding.Data\\Models\\User.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\Models\\User.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Data\\Models\\User.cs",
               "RelativeToolTip": "TheWedding.Data\\Models\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwEgAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:14:26.217Z",
+              "WhenOpened": "2025-06-03T19:59:18.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Exceptions\\ExceptionHandler.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Exceptions\\ExceptionHandler.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Exceptions\\ExceptionHandler.cs",
-              "RelativeToolTip": "TheWedding.Api\\Exceptions\\ExceptionHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserAdminController.cs",
+              "DocumentMoniker": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
+              "RelativeDocumentMoniker": "TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
+              "ToolTip": "C:\\Coding\\TheWedding\\net\\TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
+              "RelativeToolTip": "TheWedding.Api\\Controllers\\Admin\\UserAdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:36:26.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Program.cs",
-              "RelativeDocumentMoniker": "TheWedding.Api\\Program.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\Program.cs",
-              "RelativeToolTip": "TheWedding.Api\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAALsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:34:51.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DataStartup.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\DataStartup.cs",
-              "RelativeDocumentMoniker": "TheWedding.Data\\DataStartup.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\DataStartup.cs",
-              "RelativeToolTip": "TheWedding.Data\\DataStartup.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:34:31.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "TheWedding.Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\AppDbContext.cs",
-              "RelativeToolTip": "TheWedding.Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T09:14:20.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "TheWedding.Api\\appsettings.json",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\appsettings.json",
-              "RelativeToolTip": "TheWedding.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-31T09:12:36.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "TheWedding.Data",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\TheWedding.Data.csproj",
-              "RelativeDocumentMoniker": "TheWedding.Data\\TheWedding.Data.csproj",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Data\\TheWedding.Data.csproj",
-              "RelativeToolTip": "TheWedding.Data\\TheWedding.Data.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-31T09:16:17.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ngrok.txt",
-              "DocumentMoniker": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\ngrok.txt",
-              "RelativeDocumentMoniker": "TheWedding.Api\\ngrok.txt",
-              "ToolTip": "C:\\Coding\\Wedding\\net\\TheWedding.Api\\ngrok.txt",
-              "RelativeToolTip": "TheWedding.Api\\ngrok.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-31T09:13:39.739Z",
+              "WhenOpened": "2025-06-03T19:58:08.301Z",
               "EditorCaption": ""
             }
           ]

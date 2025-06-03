@@ -20,6 +20,9 @@ public class UserRepo
     {
         // Fetch all users from database
         return await _dbContext.Users
+            .IgnoreAutoIncludes()
+            .Include(u => u.PlusOne)
+            .Include(u => u.PlusOnes)
             .AsNoTracking()
             .ToListAsync();
     }
@@ -28,10 +31,10 @@ public class UserRepo
     {
         var token = await _dbContext.AuthTokens
             .AsNoTracking()
-            .Include(t => t.User)
+            .Include(t => t.User).ThenInclude(u => u.PlusOnes)
             .FirstOrDefaultAsync(t => t.Id == tokenId);
 
-        return token?.User ?? throw HandledException.NotFound("User not found");
+        return token?.User ?? throw HandledException.NotFound(ErrorKeys.UserNotFound);
     }
 
     public async Task<User> Save(User.UserDto dto)
@@ -54,7 +57,7 @@ public class UserRepo
         if (user.Disabled)
         {
             _logger.LogWarning("User {UserId} is disabled", user.Id);
-            throw HandledException.Forbidden("Restricted");
+            throw HandledException.Forbidden(ErrorKeys.UserDisabled);
         }
 
         return user;
@@ -63,7 +66,7 @@ public class UserRepo
     public async Task<User> ToggleActiveness(Guid userId)
     {
         // Find user by ID and toggle active status
-        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId) ?? throw HandledException.NotFound("User not found");
+        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId) ?? throw HandledException.NotFound(ErrorKeys.UserNotFound);
 
         user.Disabled = !user.Disabled;
         _dbContext.Users.Update(user);

@@ -20,8 +20,8 @@ using TheWedding.Data.Repos;
 using TheWedding.Shared;
 
 // Init
-Console.WriteLine("");
-Console.WriteLine("");
+Console.WriteLine("...");
+Console.WriteLine("...");
 Console.WriteLine("... Starting API");
 
 var builder = WebApplication.CreateBuilder(args);
@@ -183,5 +183,11 @@ app.MapGet("/", ([FromServices] IOptions<AppSettings> options) => new
     message = $"Only {(new DateTime(2025, 12, 29, 12, 0, 0) - DateTime.UtcNow).TotalDays} days to go!",
     version = builder.Configuration["Version"] ?? Assembly.GetEntryAssembly().GetName().Version.ToString()
 });
+
+Console.WriteLine("...");
+Console.WriteLine("...");
+Console.WriteLine("... App Started");
+Console.WriteLine("");
+Console.WriteLine("");
 
 app.Run();

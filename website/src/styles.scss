@@ -1,7 +1,28 @@
 // https://bulma.io/documentation/components
 @import 'bulma/css/bulma.css';
 
-body {
-    // max-width: 1200px;
-    padding: 1rem;
+// https://fonts.google.com/
+@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Tangerine:wght@400;700&display=swap');
+
+:root {
+    --bulma-primary-h: 283deg;
+    --bulma-primary-l: 80%;
+
+    // --bulma-size-small: 1rem;
+    // --bulma-size-normal: 1.25rem;
+    // --bulma-size-medium: 1.5rem;
+    // --bulma-size-large: 1.75rem;
+    // --bulma-family-primary: 'Sofia', cursive;
+}
+
+#site-loading {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
 }

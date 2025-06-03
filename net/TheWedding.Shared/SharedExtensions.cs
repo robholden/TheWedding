@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Text;
 
 namespace TheWedding.Shared;
@@ -30,5 +31,12 @@ public static class SharedExtensions
         supportId.Insert(2, final);
 
         return supportId.ToString();
+    }
+
+    public static string GetDescription(this ErrorKeys key)
+    {
+        var field = key.GetType().GetField(key.ToString());
+        var attribute = field?.GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
+        return attribute?.Description ?? key.ToString();
     }
 }

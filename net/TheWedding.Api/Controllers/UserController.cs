@@ -24,6 +24,6 @@ public class UserController : ControllerBase
     {
         var me = AuthenticatedUser.FromClaims(User);
         var user = await _repo.GetByToken(me.TokenId);
-        return user.ToDto(withId: false);
+        return user.ToDto();
     }
 }

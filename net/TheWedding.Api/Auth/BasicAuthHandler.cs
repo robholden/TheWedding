@@ -38,7 +38,7 @@ public class BasicAuthHandler : AuthenticationHandler<AuthenticationSchemeOption
         if (authHeader?.StartsWith("basic", StringComparison.OrdinalIgnoreCase) != true)
         {
             Response.StatusCode = StatusCodes.Status401Unauthorized;
-            Response.Headers.Append("WWW-Authenticate", "Basic realm=\"scorecaddy.app\"");
+            Response.Headers.Append("WWW-Authenticate", "Basic realm=\"reshandrob.net\"");
             return Task.FromResult(AuthenticateResult.Fail("Invalid Authorization Header; either null (missing) or wrongly specified"));
         }
 

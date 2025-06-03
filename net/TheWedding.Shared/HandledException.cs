@@ -13,13 +13,13 @@ public class HandledException : Exception
 
     public HandledException(string message = "") : this(message, HttpStatusCode.BadRequest) { }
 
-    public static HandledException NotFound(string message = "") => new(message, HttpStatusCode.NotFound);
+    public static HandledException NotFound(ErrorKeys key) => new(key.GetDescription(), HttpStatusCode.NotFound);
 
-    public static HandledException BadRequest(string message = "") => new(message, HttpStatusCode.BadRequest);
+    public static HandledException BadRequest(ErrorKeys key) => new(key.GetDescription(), HttpStatusCode.BadRequest);
 
-    public static HandledException Unauthorized(string message = "") => new(message, HttpStatusCode.Unauthorized);
+    public static HandledException Unauthorized(ErrorKeys key) => new(key.GetDescription(), HttpStatusCode.Unauthorized);
 
-    public static HandledException Forbidden(string message = "") => new(message, HttpStatusCode.Forbidden);
+    public static HandledException Forbidden(ErrorKeys key) => new(key.GetDescription(), HttpStatusCode.Forbidden);
 
     public HandledExceptionDto ToDto => new(Message, (int)StatusCode);
 }

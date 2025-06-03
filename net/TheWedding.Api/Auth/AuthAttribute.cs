@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 using Microsoft.AspNetCore.Authorization;
 
@@ -19,19 +20,11 @@ public class AuthorizedUserHandler : AuthorizationHandler<AuthorizedUserRequirem
 
     protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, AuthorizedUserRequirement requirement)
     {
-        var userIdClaim = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userIdClaim == null || !int.TryParse(userIdClaim, out var userId))
+        // Get auth token id
+        var jtiClaim = context.User.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
+        if (jtiClaim == null || !Guid.TryParse(jtiClaim, out var tokenId))
         {
-            // If no UserId claim is found or invalid, fail authorization
-            context.Fail();
-            return;
-        }
-
-        // Get Sid
-        var sidClaim = context.User.FindFirst(ClaimTypes.Sid)?.Value;
-        if (sidClaim == null || !Guid.TryParse(sidClaim, out var sid))
-        {
-            // If no Sid claim is found or invalid, fail authorization
+            // If no Jit claim is found or invalid, fail authorization
             context.Fail();
             return;
         }
@@ -45,7 +38,7 @@ public class AuthorizedUserHandler : AuthorizationHandler<AuthorizedUserRequirem
         }
 
         // Check if the user exists in the database
-        var token = await _repo.IsTokenValid(sid, httpContext.IpAddress());
+        var token = await _repo.IsTokenValid(tokenId, httpContext.IpAddress());
         if (!token)
         {
             context.Fail();
@@ -56,12 +49,12 @@ public class AuthorizedUserHandler : AuthorizationHandler<AuthorizedUserRequirem
     }
 }
 
-public record AuthenticatedUser(int UserId, Guid TokenId)
+public record AuthenticatedUser(Guid UserId, Guid TokenId)
 {
     public static AuthenticatedUser FromClaims(ClaimsPrincipal claims)
     {
-        var userId = int.Parse(claims.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-        var sid = Guid.Parse(claims.FindFirst(ClaimTypes.Sid)?.Value ?? Guid.Empty.ToString());
-        return new AuthenticatedUser(userId, sid);
+        var userId = Guid.Parse(claims.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+        var tokenId = Guid.Parse(claims.FindFirst(JwtRegisteredClaimNames.Jti)?.Value ?? Guid.Empty.ToString());
+        return new AuthenticatedUser(userId, tokenId);
     }
 }

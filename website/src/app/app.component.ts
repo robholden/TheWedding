@@ -3,7 +3,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ApiHttpService } from './shared/apis/api-http.service';
 
 @Component({
-    selector: 'hc-root',
+    selector: 'wed-root',
     templateUrl: './app.component.html',
     styles: [],
     imports: [RouterOutlet],

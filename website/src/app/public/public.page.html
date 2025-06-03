@@ -1,0 +1,73 @@
+@if (!isCompact()) {
+    <section class="hero">
+        <article class="has-text-centered">
+            <h1 translate>pages.landing.names</h1>
+            <h2 translate>pages.landing.dates</h2>
+            <h3 translate>pages.landing.location</h3>
+        </article>
+    </section>
+} @else {
+    <header>
+        <div class="container is-flex is-flex-direction-row is-align-content-center">
+            <a routerLink="/"> <img src="assets/images/heart.svg" width="100" /> </a>
+            <div class="my-auto ml-4">
+                <h1 translate>pages.landing.names</h1>
+                <h2>{{ 'pages.landing.dates' | translate }} &mdash; {{ 'pages.landing.location' | translate }}</h2>
+            </div>
+
+            @if (api.user()) {
+                <button class="button is-danger my-auto ml-auto" (click)="api.logout()" translate>common.logout</button>
+            }
+        </div>
+    </header>
+}
+
+<div class="tabs is-centered mt-4">
+    <div class="container">
+        <ul>
+            @for (page of common; track $index) {
+                <li routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" [class.ml-auto]="$first && !isCompact()" [class.mr-auto]="$last && api.user()">
+                    <a [routerLink]="page" translate>pages.{{ page || 'bio' }}.tab</a>
+                </li>
+            }
+
+            @if (api.user(); as user) {
+                @if (user.isAdmin) {
+                    <li routerLinkActive="is-active">
+                        <a routerLink="admin/guests">Manage Guests</a>
+                    </li>
+                } @else {
+                    @for (page of secure; track $index) {
+                        <li routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+                            <a [routerLink]="'rsvp/' + page" translate>pages.{{ page || 'details' }}.tab</a>
+                        </li>
+                    }
+                }
+            } @else {
+                <li routerLinkActive="is-active" class="mr-auto">
+                    <a routerLink="login" translate>pages.login.tab</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<router-outlet />
+
+<footer>
+    <div class="container is-flex is-flex-direction-row is-align-content-center">
+        <small>
+            {{ 'footer.copyright' | translate: { year: currentYear } }}
+        </small>
+
+        <button class="button is-link my-auto mr-2 ml-auto" [class.is-light]="trx.defaultLang !== 'en'" (click)="changeLang('en')">
+            <span class="icon is-small"><i class="fas fa-flag"></i></span>
+            <span translate>langs.en</span>
+        </button>
+
+        <button class="button is-link my-auto" [class.is-light]="trx.defaultLang !== 'in-ml'" (click)="changeLang('in-ml')">
+            <span class="icon is-small"><i class="fas fa-flag"></i></span>
+            <span translate>langs.in-ml</span>
+        </button>
+    </div>
+</footer>

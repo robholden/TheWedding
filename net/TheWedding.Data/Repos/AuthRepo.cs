@@ -57,13 +57,13 @@ public class AuthRepo
         if (token == null)
         {
             _logger.LogWarning("Token {TokenId} not found", tokenId);
-            throw HandledException.NotFound("Token not found");
+            throw HandledException.NotFound(ErrorKeys.SessionExpired);
         }
         // Check if the token is expired
         if (token.ExpiresAt < DateTime.UtcNow.AddMinutes(5))
         {
             _logger.LogWarning("Token {TokenId} has expired", tokenId);
-            throw HandledException.Unauthorized("Token has expired");
+            throw HandledException.Unauthorized(ErrorKeys.SessionExpired);
         }
 
         // Update the token's expiration date and IP address
@@ -80,19 +80,24 @@ public class AuthRepo
     {
         // Find user by name and date of birth
         var lowered = name.Trim().ToLowerInvariant().Replace(" ", "");
-        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.MatchName == lowered && u.Dob == dob);
+        var user = await _dbContext.Users
+            .Include(u => u.PlusOne)
+            .FirstOrDefaultAsync(u => u.MatchName == lowered && u.Dob == dob);
         if (user == null)
         {
             _logger.LogWarning("Login failed for {Username} from {Ip}", name, ip);
-            throw HandledException.Unauthorized("Invalid credentials");
+            throw HandledException.NotFound(ErrorKeys.RsvpNotMatched);
         }
 
         // Check if user is disabled
         if (user.Disabled)
         {
             _logger.LogWarning("User {UserId} is disabled", user.Id);
-            throw HandledException.Forbidden("Restricted");
+            throw HandledException.Forbidden(ErrorKeys.UserDisabled);
         }
+
+        // If they've got a plus on assign, return that user
+        if (user.PlusOne != null) return await FindUser(user.PlusOne.MatchName, user.PlusOne.Dob, ip);
 
         // Create or update auth token for the user
         var token = await _dbContext.AuthTokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.IpAddress == ip);

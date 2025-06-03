@@ -1,0 +1,35 @@
+<div class="container is-max-tablet">
+    <form class="box" novalidate [formGroup]="rsvpForm" (submit)="rsvp()">
+        <div class="field">
+            <label class="label" translate>pages.login.name</label>
+            <div class="control">
+                <input class="input" [class.is-danger]="rsvpForm.controls.name.touched && rsvpForm.controls.name.errors" type="text" placeholder="" formControlName="name" />
+                @if (rsvpForm.controls.name.touched && rsvpForm.controls.name.errors) {
+                    <p class="help is-danger" translate>forms.required</p>
+                }
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" translate>forms.dob</label>
+            <div class="control">
+                <input class="input" [class.is-danger]="rsvpForm.controls.dob.touched && rsvpForm.controls.dob.errors" type="date" placeholder="" formControlName="dob" />
+                @if (rsvpForm.controls.dob.touched && rsvpForm.controls.dob.errors) {
+                    <p class="help is-danger" translate>forms.required</p>
+                }
+            </div>
+        </div>
+
+        @if (error) {
+            <div class="notification is-danger">
+                <button class="delete" (click)="error = null"></button>
+                {{ error.statusText | translate }}
+            </div>
+        }
+
+        @if (rsvpForm.disabled) {
+            <progress class="progress is-small is-primary" max="100"></progress>
+        }
+
+        <button class="button is-primary is-fullwidth" translate>pages.login.submit</button>
+    </form>
+</div>

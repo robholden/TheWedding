@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable, Injector, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable, Subject } from 'rxjs';
 import { catchError, tap, timeout } from 'rxjs/operators';
@@ -23,12 +24,14 @@ export const parseApiResult = <T>(result: T | ServerError, valueOnError?: T): T 
     return result;
 };
 
-export interface ApiOptions {
+export type ApiOptions = {
     skipRefresh?: boolean;
     isAdmin?: boolean;
     isExternal?: boolean;
     timeout?: number;
-}
+};
+
+export type AuthToken = { token: string; expiresAt: number };
 
 @Injectable({
     providedIn: 'root',
@@ -46,6 +49,7 @@ export class ApiHttpService extends SignalStore {
     constructor(
         injector: Injector,
         private http: HttpClient,
+        private router: Router,
     ) {
         super(injector, 'auth_');
     }
@@ -54,7 +58,10 @@ export class ApiHttpService extends SignalStore {
      * Initializes the service by creating storage signals for token and expiresAt.
      */
     async init() {
-        Promise.all([this.createStorageSignal({ key: 'token', signal: this.token }), this.createStorageSignal({ key: 'expiresAt', signal: this.expiresAt })]);
+        await Promise.all([this.createStorageSignal({ key: 'token', signal: this.token }), this.createStorageSignal({ key: 'expires_at', signal: this.expiresAt })]);
+
+        // delay
+        // await new Promise((resolve) => setTimeout(resolve, 5000));
 
         if (this.token()) {
             const user = await this.verify();
@@ -65,6 +72,17 @@ export class ApiHttpService extends SignalStore {
                 this.user.set(user);
             }
         }
+    }
+
+    /**
+     * Logs out the current user by clearing the token and expiration time.
+     */
+    logout() {
+        this.token.set(null);
+        this.expiresAt.set(null);
+        this.user.set(null);
+
+        this.router.navigateByUrl('/');
     }
 
     /**
@@ -167,6 +185,7 @@ export class ApiHttpService extends SignalStore {
 
         return { url: (options.isExternal ? '' : environment.apiUrl) + url, options: httpOptions };
     }
+
     async refreshAuth(): Promise<ServerError> {
         const expiresAt = this.expiresAt();
         const nowAtEpoch = Math.round(Date.now() / 1000);
@@ -189,8 +208,8 @@ export class ApiHttpService extends SignalStore {
         const meta = await this.callMeta('/auth/refresh', { skipRefresh: true });
         if (meta instanceof ServerError) return meta;
 
-        const req = this.http.get<HttpResponse<{ token: string; expiresAt: number }>>(meta.url, meta.options);
-        const resp = await this.handleResponse<{ token: string; expiresAt: number }>('/auth/refresh', req);
+        const req = this.http.get<HttpResponse<AuthToken>>(meta.url, meta.options);
+        const resp = await this.handleResponse<AuthToken>('/auth/refresh', req);
 
         this.refreshing.next(resp instanceof ServerError ? resp : null);
         this.refreshing = null;
@@ -217,7 +236,7 @@ export class ApiHttpService extends SignalStore {
         const resError = async (resolve: any, httpError: HttpErrorResponse) => {
             if (httpError?.status === 403 || httpError?.status === 401) this.token.set(null);
 
-            const error = new ServerError(httpError.status, httpError.statusText);
+            const error = new ServerError(httpError.error?.status || httpError.status, 'api_errors.' + (httpError.error?.message || httpError.status || 'unknown'));
 
             resolve(error);
             subject.next(null);

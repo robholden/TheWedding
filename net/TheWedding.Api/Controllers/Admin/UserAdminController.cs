@@ -22,7 +22,7 @@ public class UserAdminController : ControllerBase
     public async Task<IEnumerable<User.UserDto>> GetAll()
     {
         var users = await _repo.GetAll();
-        return users.Select(u => u.ToDto(withId: true));
+        return users.Select(u => u.ToDto());
     }
 
     [HttpGet("{id}/info")]

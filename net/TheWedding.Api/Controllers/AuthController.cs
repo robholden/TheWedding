@@ -30,9 +30,9 @@ public class AuthController : ControllerBase
         return new AuthResult(JWT, ExpiresAt);
     }
 
-    [LimitRequest(1, 15)]
-    [HttpPost("login")]
-    public async Task<AuthResult> Login([FromBody] AuthRequest request)
+    [LimitRequest(2, 10)]
+    [HttpPost("rsvp")]
+    public async Task<AuthResult> RSVP([FromBody] AuthRequest request)
     {
         // Get user
         var ip = HttpContext.IpAddress();
