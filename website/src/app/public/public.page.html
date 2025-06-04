@@ -5,6 +5,7 @@
             <h2 translate>pages.landing.dates</h2>
             <h3 translate>pages.landing.location</h3>
         </article>
+        <img src="assets/images/heart.svg" width="100" />
     </section>
 } @else {
     <header>
@@ -26,7 +27,7 @@
     <div class="container">
         <ul>
             @for (page of common; track $index) {
-                <li routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" [class.ml-auto]="$first && !isCompact()" [class.mr-auto]="$last && api.user()">
+                <li [id]="page || null" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" [class.ml-auto]="$first && !isCompact()" [class.mr-auto]="$last && api.user()" (click)="scrollTo(page)">
                     <a [routerLink]="page" translate>pages.{{ page || 'bio' }}.tab</a>
                 </li>
             }

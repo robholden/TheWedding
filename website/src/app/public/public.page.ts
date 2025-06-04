@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { createRouteWatch } from 'src/app/app.functions';
@@ -13,7 +13,7 @@ import { ApiHttpService, setLocale } from '@shared';
     styleUrl: './public.page.scss',
     imports: [RouterOutlet, RouterLink, RouterLinkActive, TranslateModule],
 })
-export default class PublicPage {
+export default class PublicPage implements OnInit {
     readonly currentYear = new Date().getFullYear();
 
     readonly common = ['', 'schedule', 'destination', 'faq'];
@@ -29,8 +29,20 @@ export default class PublicPage {
 
     readonly isCompact = computed(() => this.isLogin() || this.isRsvp() || this.isAdmin());
 
+    ngOnInit(): void {
+        setTimeout(() => {
+            const pathname = location.pathname?.substring(1);
+            if (this.common.includes(pathname)) this.scrollTo(pathname);
+        });
+    }
+
     changeLang(lang: string) {
         this.trx.setDefaultLang(lang);
         setLocale(lang);
+    }
+
+    scrollTo(id: string) {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }

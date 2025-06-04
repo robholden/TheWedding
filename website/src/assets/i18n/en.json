@@ -22,9 +22,16 @@
             "description": "Join us for the celebration of our love! Here’s the schedule of events leading up to our wedding day."
         },
         "details": {
-            "tab": "My Details",
-            "title": "My Details",
-            "description": "Review & manage your RSVP details here."
+            "tab": "Guest Details",
+            "title": "Guest Details",
+            "description": "Review & manage your RSVP details here.",
+            "edit": "Edit Details",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "dob": "Date of Birth",
+            "save": "Save Details",
+            "cancel": "Cancel"
         },
         "gallery": {
             "tab": "Gallery",
