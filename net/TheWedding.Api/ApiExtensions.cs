@@ -1,12 +1,20 @@
-﻿using System.Security.Claims;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace TheWedding.Api;
 
 public static class ApiExtensions
 {
-    public static int UserId(this ClaimsPrincipal principal)
+    public static Guid UserId(this ClaimsPrincipal principal)
     {
-        return int.Parse(principal.FindFirstValue(ClaimTypes.NameIdentifier));
+        var subClaim = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return Guid.TryParse(subClaim, out var userId) ? userId : Guid.Empty;
+    }
+
+    public static Guid TokenId(this ClaimsPrincipal principal)
+    {
+        var jtiClaim = principal.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
+        return Guid.TryParse(jtiClaim, out var tokenId) ? tokenId : Guid.Empty;
     }
 
     public static bool TryGetHeader(this HttpContext context, string key, out string value)

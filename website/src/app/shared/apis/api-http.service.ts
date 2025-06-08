@@ -42,6 +42,7 @@ export class ApiHttpService extends SignalStore {
     private admin: string = sessionStorage.getItem('admin');
     private auth: string;
 
+    readonly loaded = signal<boolean>(false);
     readonly user = signal<User>(null);
     readonly token = signal<string>(null);
     readonly expiresAt = signal<number>(null);
@@ -72,6 +73,8 @@ export class ApiHttpService extends SignalStore {
                 this.user.set(user);
             }
         }
+
+        this.loaded.set(true);
     }
 
     /**

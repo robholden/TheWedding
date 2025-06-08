@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -10,7 +9,7 @@ import { ApiHttpService, Information, isServerError, localize, parseApiResult, S
     selector: 'wed-guests-page',
     templateUrl: './guests.page.html',
     styleUrls: ['./guests.page.scss'],
-    imports: [DatePipe, FormsModule, ReactiveFormsModule],
+    imports: [FormsModule, ReactiveFormsModule],
 })
 export default class GuestsPage {
     private _all = signal<User[]>(null);
@@ -59,7 +58,6 @@ export default class GuestsPage {
                 lastName: editing.lastName,
                 nickname: editing.nickname,
                 email: editing.email,
-                dob: editing.dob,
                 plusOneId: editing.plusOneId || null,
             });
 
@@ -91,7 +89,6 @@ export default class GuestsPage {
                 nickname: '',
                 email: '',
                 disabled: false,
-                dob: null,
             },
         );
     }
@@ -113,16 +110,15 @@ export default class GuestsPage {
         const users: User[] = [];
         for (const line of lines.slice(1)) {
             const parts = line.split(',').map((part) => part.trim());
-            if (parts.length < 5) continue; // Skip lines that don't have enough data
+            if (parts.length < 4) continue; // Skip lines that don't have enough data
 
             const user: User = {
                 firstName: parts[0],
                 lastName: parts[1],
                 nickname: parts[2] || '',
                 email: parts[3],
-                dob: parts[4],
                 disabled: false,
-                plusOneId: parts[5] || null,
+                plusOneId: parts[4] || null,
             };
 
             users.push(user);

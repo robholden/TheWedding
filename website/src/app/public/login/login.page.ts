@@ -16,8 +16,8 @@ export default class LoginPage {
     error?: ServerError;
 
     readonly rsvpForm = new FormGroup({
-        name: new FormControl('', Validators.required),
-        dob: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.email]),
     });
 
     constructor(

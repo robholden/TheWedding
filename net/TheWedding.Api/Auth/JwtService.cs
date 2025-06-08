@@ -18,11 +18,18 @@ public class JwtService
 
     public (string JWT, long ExpiresAt) GenerateToken(AuthToken authToken)
     {
-        var claims = new[]
+        var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.NameIdentifier, $"{authToken.UserId}"),
-            new Claim(JwtRegisteredClaimNames.Jti, $"{authToken.Id}")
+            new(ClaimTypes.NameIdentifier, $"{authToken.UserId}"),
+            new (ClaimTypes.Role, $"{authToken.UserId}"),
+            new(JwtRegisteredClaimNames.Jti, $"{authToken.Id}")
         };
+
+        // Add roles for each plus one
+        foreach (var plusOne in authToken.User.PlusOnes ?? [])
+        {
+            claims.Add(new Claim(ClaimTypes.Role, $"{plusOne.Id}"));
+        }
 
         var token = new JwtSecurityToken(
             issuer: _settings.Issuer,

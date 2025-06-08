@@ -31,7 +31,7 @@ public static class DataStartup
         {
             if (!context.Set<User>().Any(u => u.Email == email))
             {
-                context.Set<User>().Add(new User { FirstName = "Robert", LastName = "Reshma", Dob = DateOnly.FromDateTime(new(2023, 7, 23)), Email = email }.SetMatchName());
+                context.Set<User>().Add(new User { FirstName = "Robert", LastName = "Reshma", Email = email });
                 context.SaveChanges();
 
                 Console.WriteLine("...");

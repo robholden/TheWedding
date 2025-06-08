@@ -11,7 +11,6 @@ public class AuthToken
     public DateTime ExpiresAt { get; set; } = DateTime.UtcNow.AddDays(1);
 
     public Guid UserId { get; set; }
-
     public virtual User User { get; set; }
 
     [MaxLength(100)]

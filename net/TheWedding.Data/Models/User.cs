@@ -22,15 +22,10 @@ public class User
     [MaxLength(255)]
     public string Nickname { get; set; }
 
-    [MaxLength(500)]
-    public string MatchName { get; set; }
-
     public Guid? PlusOneId { get; set; }
     public virtual User PlusOne { get; set; }
 
     public virtual ICollection<User> PlusOnes { get; set; }
-
-    public DateOnly Dob { get; set; }
 
     public bool Disabled { get; set; }
 
@@ -40,15 +35,9 @@ public class User
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    public User SetMatchName()
-    {
-        MatchName = $"{FirstName}{LastName}".Trim().ToLowerInvariant().Replace(" ", "");
-        return this;
-    }
 
     public User ApplyDto(UserDto dto)
     {
-        Dob = dto.Dob;
         Email = dto.Email;
         FirstName = dto.FirstName;
         LastName = dto.LastName;
@@ -56,14 +45,13 @@ public class User
         UpdatedAt = DateTime.UtcNow;
         PlusOneId = dto.PlusOneId;
 
-        return SetMatchName();
+        return this;
     }
 
     public UserDto ToDto(bool includePlusOnes = true) =>
         new()
         {
             Id = Id,
-            Dob = Dob,
             Email = Email,
             FirstName = FirstName,
             LastName = LastName,
@@ -92,10 +80,9 @@ public class User
         public IEnumerable<UserDto> PlusOnes { get; set; }
 
         public User ToUser() =>
-            new User()
+            new()
             {
                 Id = Id ?? Guid.CreateVersion7(),
-                Dob = Dob,
                 Email = Email,
                 FirstName = FirstName,
                 LastName = LastName,
@@ -103,7 +90,6 @@ public class User
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
                 PlusOneId = PlusOneId
-            }
-            .SetMatchName();
+            };
     }
 }

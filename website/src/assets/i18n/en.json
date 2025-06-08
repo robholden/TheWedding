@@ -8,8 +8,11 @@
         },
         "bio": {
             "tab": "The Couple",
-            "title": "About the Couple",
-            "description": "We are Reshma and Robert, and we are thrilled to invite you to our wedding celebration! Our journey together has been filled with love, laughter, and unforgettable moments. We can't wait to share this special day with all of you."
+            "title": "About the Couple"
+        },
+        "wedding": {
+            "tab": "The Wedding",
+            "title": "The Wedding"
         },
         "destination": {
             "tab": "Destination",
@@ -60,7 +63,8 @@
             "tab": "RSVP",
             "title": "Login",
             "description": "Enter your information to access your RSVP",
-            "name": "Name",
+            "name": "Last Name",
+            "email": "Email Address",
             "submit": "Find Details"
         }
     },
@@ -68,8 +72,7 @@
         "copyright": "R&R Wedding © {{ year }} All rights reserved."
     },
     "forms": {
-        "required": "This field is required.",
-        "dob": "Date of Birth"
+        "required": "This field is required."
     },
     "langs": {
         "en": "English",

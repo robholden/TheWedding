@@ -14,9 +14,11 @@ import { ApiHttpService, setLocale } from '@shared';
     imports: [RouterOutlet, RouterLink, RouterLinkActive, TranslateModule],
 })
 export default class PublicPage implements OnInit {
+    menuOpen = false;
+
     readonly currentYear = new Date().getFullYear();
 
-    readonly common = ['', 'schedule', 'destination', 'faq'];
+    readonly common = ['bio', 'wedding', 'schedule', 'destination', 'faq'];
     readonly secure = ['details', 'gallery'];
 
     readonly trx = inject(TranslateService);
@@ -32,7 +34,7 @@ export default class PublicPage implements OnInit {
     ngOnInit(): void {
         setTimeout(() => {
             const pathname = location.pathname?.substring(1);
-            if (this.common.includes(pathname)) this.scrollTo(pathname);
+            if (this.common.includes(pathname)) this.goToContent();
         });
     }
 
@@ -41,8 +43,11 @@ export default class PublicPage implements OnInit {
         setLocale(lang);
     }
 
-    scrollTo(id: string) {
-        const element = document.getElementById(id);
-        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    goToContent() {
+        this.menuOpen = false;
+        setTimeout(() => {
+            const element = document.getElementById('page-content');
+            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     }
 }

@@ -5,7 +5,6 @@ export type User = {
     lastName: string;
     nickname: string;
     email: string;
-    dob: Date | string;
     disabled?: boolean;
     updatedAt?: Date;
     isAdmin?: boolean;

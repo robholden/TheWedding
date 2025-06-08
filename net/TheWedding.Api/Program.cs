@@ -1,6 +1,6 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
-
+using System.Threading.Channels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -113,6 +113,11 @@ builder.Services.AddSingleton<JwtService>();
 builder.Services.AddTransient<IAuthorizationHandler, AuthorizedUserHandler>();
 builder.Services.AddTransient<UserRepo>();
 builder.Services.AddTransient<AuthRepo>();
+
+// Add audit log processor
+builder.Services.AddSingleton<ChannelAccessor>();
+builder.Services.AddHostedService<AuditProcessor>();
+builder.Services.AddSingleton(Channel.CreateUnbounded<AuditLogRequest>());
 
 builder.Services
     .AddControllers()

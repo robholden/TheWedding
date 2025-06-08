@@ -1,9 +1,73 @@
 {
-    "check_rsvp": {
-        "title": "RSVP",
-        "description": "Enter your information to access your RSVP",
-        "name": "Name",
-        "submit": "Find Details"
+    "title": "Rob & Resh",
+    "pages": {
+        "landing": {
+            "names": "Reshma & Robert",
+            "dates": "December, 2025",
+            "location": "Kochi, Kerala - India"
+        },
+        "bio": {
+            "tab": "The Couple",
+            "title": "About the Couple",
+            "description": [
+                "We are Reshma and Robert, and we are thrilled to invite you to our wedding celebration! Our journey together has been filled with love, laughter, and unforgettable moments. We can't wait to share this special day with all of you."
+            ]
+        },
+        "destination": {
+            "tab": "Destination",
+            "title": "Destination",
+            "description": "Join us in the beautiful city of Kochi, Kerala, India for our wedding celebration. Known for its stunning backwaters and rich cultural heritage, Kochi is the perfect backdrop for our special day."
+        },
+        "schedule": {
+            "tab": "Schedule",
+            "title": "Wedding Schedule",
+            "description": "Join us for the celebration of our love! Here’s the schedule of events leading up to our wedding day."
+        },
+        "details": {
+            "tab": "Guest Details",
+            "title": "Guest Details",
+            "description": "Review & manage your RSVP details here.",
+            "edit": "Edit Details",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "dob": "Date of Birth",
+            "save": "Save Details",
+            "cancel": "Cancel"
+        },
+        "gallery": {
+            "tab": "Gallery",
+            "title": "Gallery",
+            "description": "A collection of our favorite moments."
+        },
+        "faq": {
+            "tab": "FAQ",
+            "title": "Frequently Asked Questions",
+            "questions": [
+                {
+                    "question": "What is the dress code?",
+                    "answer": "The dress code is formal attire."
+                },
+                {
+                    "question": "Where can I find accommodation?",
+                    "answer": "We have listed some recommended hotels on the website."
+                },
+                {
+                    "question": "How can I RSVP?",
+                    "answer": "You can RSVP through the RSVP tab on this website."
+                }
+            ]
+        },
+        "login": {
+            "tab": "RSVP",
+            "title": "Login",
+            "description": "Enter your information to access your RSVP",
+            "name": "Name",
+            "submit": "Find Details"
+        }
+    },
+    "footer": {
+        "copyright": "R&R Wedding © {{ year }} All rights reserved."
     },
     "forms": {
         "required": "This field is required.",
@@ -13,11 +77,20 @@
         "en": "English",
         "in-ml": "Malayalam"
     },
+    "common": {
+        "logout": "Logout"
+    },
     "api_errors": {
+        "400": "Something went wrong (400). Please try again later.",
+        "401": "Something went wrong (401). Please try again later.",
+        "403": "Something went wrong (403). Please try again later.",
+        "404": "Something went wrong (404). Please try again later.",
+        "429": "Woah, you've made too many requests. Please try again in a bit.",
+        "500": "Something went wrong (500). Please try again later.",
         "unknown": "An unknown error occurred.",
         "rsvp_missing": "No details found for the information provided.",
+        "user_disabled": "No details found for the information provided.",
         "user_not_found": "User not found.",
-        "user_disabled": "User account is disabled.",
         "session_expired": "Session expired. Please log in again."
     }
 }

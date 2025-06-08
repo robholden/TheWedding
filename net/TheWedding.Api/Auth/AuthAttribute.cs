@@ -29,7 +29,7 @@ public class AuthorizedUserHandler : AuthorizationHandler<AuthorizedUserRequirem
             return;
         }
 
-        // Get http context 
+        // Get http context
         if (context.Resource is not HttpContext httpContext)
         {
             // If the resource is not an HttpContext, fail authorization
@@ -49,12 +49,3 @@ public class AuthorizedUserHandler : AuthorizationHandler<AuthorizedUserRequirem
     }
 }
 
-public record AuthenticatedUser(Guid UserId, Guid TokenId)
-{
-    public static AuthenticatedUser FromClaims(ClaimsPrincipal claims)
-    {
-        var userId = Guid.Parse(claims.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-        var tokenId = Guid.Parse(claims.FindFirst(JwtRegisteredClaimNames.Jti)?.Value ?? Guid.Empty.ToString());
-        return new AuthenticatedUser(userId, tokenId);
-    }
-}

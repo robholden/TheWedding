@@ -21,6 +21,8 @@ public class HandledException : Exception
 
     public static HandledException Forbidden(ErrorKeys key) => new(key.GetDescription(), HttpStatusCode.Forbidden);
 
+    public static HandledException Unhandled() => new(ErrorKeys.Unknown.GetDescription(), HttpStatusCode.InternalServerError);
+
     public HandledExceptionDto ToDto => new(Message, (int)StatusCode);
 }
 

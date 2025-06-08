@@ -35,7 +35,7 @@ public class ExceptionHandler
             }
             else
             {
-                handledEx = new HandledException("Something went wrong");
+                handledEx = HandledException.Unhandled();
                 _logger.LogError(ex, "An error occurred while processing the request.");
             }
 

@@ -13,6 +13,14 @@ const routes: Routes = [
                 loadComponent: () => import('./bio/bio.page'),
             },
             {
+                path: 'bio',
+                loadComponent: () => import('./bio/bio.page'),
+            },
+            {
+                path: 'wedding',
+                loadComponent: () => import('./wedding/wedding.page'),
+            },
+            {
                 path: 'schedule',
                 loadComponent: () => import('./schedule/schedule.page'),
             },

@@ -60,13 +60,6 @@
                                         <input class="input" type="email" formControlName="email" />
                                     </div>
                                 </div>
-
-                                <div class="field column">
-                                    <label class="label" translate>pages.details.dob</label>
-                                    <div class="control">
-                                        <input class="input" type="date" formControlName="dob" />
-                                    </div>
-                                </div>
                             </div>
                         </form>
                     } @else {
@@ -74,10 +67,6 @@
                             <i class="fas fa-envelope mr-1"></i>
 
                             {{ user.email || '-' }}
-                        </p>
-                        <p class="subtitle is-6">
-                            <i class="fas fa-birthday-cake mr-1"></i>
-                            {{ user.dob | date: 'longDate' }}
                         </p>
                     }
                 </div>

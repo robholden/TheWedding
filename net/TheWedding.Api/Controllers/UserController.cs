@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using TheWedding.Api.Auth;
 using TheWedding.Data;
 using TheWedding.Data.Repos;
+using TheWedding.Shared;
 
 namespace TheWedding.Api.Controllers;
 
@@ -22,8 +23,16 @@ public class UserController : ControllerBase
     [HttpGet("me")]
     public async Task<User.UserDto> GetMe()
     {
-        var me = AuthenticatedUser.FromClaims(User);
-        var user = await _repo.GetByToken(me.TokenId);
+        var user = await _repo.GetByToken(User.TokenId());
+        return user.ToDto();
+    }
+
+    [HttpPut]
+    public async Task<User.UserDto> UpdateUser([FromBody] User.UserDto userDto)
+    {
+        if (!User.IsInRole($"{userDto.Id}")) throw HandledException.Forbidden(ErrorKeys.Unknown);
+
+        var user = await _repo.Save(userDto, User.UserId());
         return user.ToDto();
     }
 }

@@ -2,21 +2,17 @@
 @import 'bulma/css/bulma.css';
 
 // https://fonts.google.com/
-@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Tangerine:wght@400;700&display=swap');
 
 :root {
     --bulma-primary-h: 283deg;
     --bulma-primary-l: 80%;
+    --bulma-family-primary: 'Funnel Display', sans-serif;
+}
 
-    --bulma-link-h: 313deg;
-    --bulma-link-s: 59%;
-    --bulma-link-l: 64%;
-
-    // --bulma-size-small: 1rem;
-    // --bulma-size-normal: 1.25rem;
-    // --bulma-size-medium: 1.5rem;
-    // --bulma-size-large: 1.75rem;
-    // --bulma-family-primary: 'Sofia', cursive;
+body {
+    background: url('assets/images/dust_scratches.png') center center repeat;
+    padding: 0;
 }
 
 #site-loading {

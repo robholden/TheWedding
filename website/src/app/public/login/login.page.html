@@ -3,17 +3,17 @@
         <div class="field">
             <label class="label" translate>pages.login.name</label>
             <div class="control">
-                <input class="input" [class.is-danger]="rsvpForm.controls.name.touched && rsvpForm.controls.name.errors" type="text" placeholder="" formControlName="name" />
-                @if (rsvpForm.controls.name.touched && rsvpForm.controls.name.errors) {
+                <input class="input" [class.is-danger]="rsvpForm.controls.lastName.touched && rsvpForm.controls.lastName.errors" type="text" placeholder="" formControlName="lastName" />
+                @if (rsvpForm.controls.lastName.touched && rsvpForm.controls.lastName.errors) {
                     <p class="help is-danger" translate>forms.required</p>
                 }
             </div>
         </div>
         <div class="field">
-            <label class="label" translate>forms.dob</label>
+            <label class="label" translate>pages.login.email</label>
             <div class="control">
-                <input class="input" [class.is-danger]="rsvpForm.controls.dob.touched && rsvpForm.controls.dob.errors" type="date" placeholder="" formControlName="dob" />
-                @if (rsvpForm.controls.dob.touched && rsvpForm.controls.dob.errors) {
+                <input class="input" [class.is-danger]="rsvpForm.controls.email.touched && rsvpForm.controls.email.errors" type="email" placeholder="" formControlName="email" />
+                @if (rsvpForm.controls.email.touched && rsvpForm.controls.email.errors) {
                     <p class="help is-danger" translate>forms.required</p>
                 }
             </div>

@@ -29,7 +29,6 @@
                     <th>Name</th>
                     <th>Plus One</th>
                     <th>Email</th>
-                    <th>Dob</th>
                     <th></th>
                 </tr>
             </thead>
@@ -39,7 +38,6 @@
                         <th>Name</th>
                         <th>Plus One</th>
                         <th>Email</th>
-                        <th>Dob</th>
                         <th></th>
                     </tr>
                 </tfoot>
@@ -72,7 +70,6 @@
                             }
                         </td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.dob | date: 'dd MMM yyyy' }}</td>
                         <td class="has-text-right">
                             <button class="button is-small" [class.is-warning]="!user.disabled" [class.is-success]="user.disabled" (click)="toggleDisable(user)">
                                 @if (user.disabled) {
@@ -151,13 +148,6 @@
                                         }
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">Date of Birth</label>
-                            <div class="control">
-                                <input class="input" type="date" formControlName="dob" />
                             </div>
                         </div>
                     </section>

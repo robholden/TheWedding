@@ -1,3 +1,4 @@
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom, LOCALE_ID, provideAppInitializer } from '@angular/core';
 import { PreloadAllModules, provideRouter, TitleStrategy, withComponentInputBinding, withPreloading, withRouterConfig } from '@angular/router';
@@ -44,6 +45,6 @@ export const appConfig: ApplicationConfig = {
             }),
         ),
         { provide: LOCALE_ID, useFactory: getLocale, deps: [TranslateService] },
-        // { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
     ],
 };

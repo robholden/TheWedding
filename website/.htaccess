@@ -7,10 +7,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # not rewrite css, js and images
-RewriteCond %{REQUEST_URI} !\.(?:css|js|map|jpe?g|gif|png|json)$ [NC]
+RewriteCond %{REQUEST_URI} !\.(?:css|js|map|jpe?g|gif|png|json|webp)$ [NC]
 RewriteRule ^(.*)$ /index.html?path=$1 [NC,L,QSA]
 
-AuthType Basic
-AuthName "Dev"
-AuthUserFile .htpasswd
-require valid-user
+# AuthType Basic
+# AuthName "Dev"
+# AuthUserFile .htpasswd
+# require valid-user

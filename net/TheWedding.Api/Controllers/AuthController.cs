@@ -22,8 +22,7 @@ public class AuthController : ControllerBase
     public async Task<AuthResult> Refresh()
     {
         // Get user
-        var me = AuthenticatedUser.FromClaims(User);
-        var token = await _repo.RefreshToken(me.TokenId, HttpContext.IpAddress());
+        var token = await _repo.RefreshToken(User.TokenId(), HttpContext.IpAddress());
 
         // Generate token
         var (JWT, ExpiresAt) = _jwtService.GenerateToken(token);
@@ -36,7 +35,7 @@ public class AuthController : ControllerBase
     {
         // Get user
         var ip = HttpContext.IpAddress();
-        var token = await _repo.FindUser(request.Name, request.Dob, ip);
+        var token = await _repo.FindUser(request.LastName, request.Email, ip);
 
         // Generate token
         var (JWT, ExpiresAt) = _jwtService.GenerateToken(token);
@@ -44,5 +43,5 @@ public class AuthController : ControllerBase
     }
 }
 
-public record AuthRequest(string Name, DateOnly Dob);
+public record AuthRequest(string LastName, string Email);
 public record AuthResult(string Token, long ExpiresAt);

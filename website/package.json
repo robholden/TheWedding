@@ -8,7 +8,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "publish": "ng build --configuration production",
-        "net": "cd ../net/TheWedding.Api && dotnet run"
+        "net": "cd ../net/TheWedding.Api && dotnet run",
+        "ngrok": "ngrok http 5265 --url=reshrob.ngrok.dev"
     },
     "private": true,
     "dependencies": {

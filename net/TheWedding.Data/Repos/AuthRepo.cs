@@ -20,7 +20,6 @@ public class AuthRepo
     {
         // Check if the token exists in the database
         var token = await _dbContext.AuthTokens.FirstOrDefaultAsync(t => t.Id == tokenId);
-
         if (token == null)
         {
             _logger.LogWarning("Invalid token {TokenId}", tokenId);
@@ -53,7 +52,9 @@ public class AuthRepo
     public async Task<AuthToken> RefreshToken(Guid tokenId, string ip)
     {
         // Find the token in the database
-        var token = await _dbContext.AuthTokens.FirstOrDefaultAsync(t => t.Id == tokenId);
+        var token = await _dbContext.AuthTokens
+            .Include(t => t.User)
+            .FirstOrDefaultAsync(t => t.Id == tokenId);
         if (token == null)
         {
             _logger.LogWarning("Token {TokenId} not found", tokenId);
@@ -76,16 +77,18 @@ public class AuthRepo
         return token;
     }
 
-    public async Task<AuthToken> FindUser(string name, DateOnly dob, string ip)
+    public async Task<AuthToken> FindUser(string lastName, string email, string ip)
     {
         // Find user by name and date of birth
-        var lowered = name.Trim().ToLowerInvariant().Replace(" ", "");
+        var loweredName = lastName.ToLower().Trim();
+        var loweredEmail = email.ToLower().Trim();
+
         var user = await _dbContext.Users
-            .Include(u => u.PlusOne)
-            .FirstOrDefaultAsync(u => u.MatchName == lowered && u.Dob == dob);
+            .Include(u => u.PlusOnes)
+            .FirstOrDefaultAsync(u => u.LastName.ToLower() == loweredName && u.Email.ToLower() == loweredEmail);
         if (user == null)
         {
-            _logger.LogWarning("Login failed for {Username} from {Ip}", name, ip);
+            _logger.LogWarning("Login failed for {LastName}/{Email} from {Ip}", lastName, email, ip);
             throw HandledException.NotFound(ErrorKeys.RsvpNotMatched);
         }
 
@@ -95,9 +98,6 @@ public class AuthRepo
             _logger.LogWarning("User {UserId} is disabled", user.Id);
             throw HandledException.Forbidden(ErrorKeys.UserDisabled);
         }
-
-        // If they've got a plus on assign, return that user
-        if (user.PlusOne != null) return await FindUser(user.PlusOne.MatchName, user.PlusOne.Dob, ip);
 
         // Create or update auth token for the user
         var token = await _dbContext.AuthTokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.IpAddress == ip);
