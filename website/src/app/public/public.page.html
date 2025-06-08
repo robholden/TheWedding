@@ -1,10 +1,12 @@
-<header [class.is-compact]="isCompact()">
-    @if (isCompact()) {
-        <div class="overlay"></div>
-    }
+<header>
     <div class="container is-flex is-align-items-center">
+        <h1>
+            <a routerLink="/"> R&R <span>&nbsp;|&nbsp;</span></a>
+        </h1>
+        <a class="nav-link mr-auto" routerLink="/" (click)="goToTop()">Home</a>
+
         @for (page of common; track $index) {
-            <a class="nav-link" [routerLink]="page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="goToContent()" translate>pages.{{ page }}.tab</a>
+            <a class="nav-link" [routerLink]="page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" translate>pages.{{ page }}.tab</a>
         }
 
         @if (api.user(); as user) {
@@ -19,8 +21,6 @@
             <a class="nav-link" routerLink="login" routerLinkActive="is-active" translate>pages.login.tab</a>
         }
 
-        <h1><a routerLink="/"> R&R &mdash; 27.12.2025</a></h1>
-
         <button type="button" class="navbar-burger" [class.is-active]="menuOpen" aria-label="menu" aria-expanded="false" (click)="menuOpen = !menuOpen">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -32,46 +32,26 @@
 
 <div class="navbar-menu is-hidden-tablet has-text-centered" [class.is-active]="menuOpen">
     @for (page of common; track $index) {
-        <a class="navbar-item" [routerLink]="page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="goToContent()" translate>pages.{{ page }}.tab</a>
+        <a class="navbar-item" [routerLink]="page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" translate>pages.{{ page }}.tab</a>
     }
 
     @if (api.user(); as user) {
         @if (user.isAdmin) {
-            <a class="navbar-item" routerLink="admin/guests" (click)="goToContent()" routerLinkActive="is-active">Manage Guests</a>
+            <a class="navbar-item" routerLink="admin/guests" routerLinkActive="is-active">Manage Guests</a>
         } @else {
             @for (page of secure; track $index) {
-                <a class="navbar-item" [routerLink]="'rsvp/' + page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="goToContent()" translate>pages.{{ page || 'details' }}.tab</a>
+                <a class="navbar-item" [routerLink]="'rsvp/' + page" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" translate>pages.{{ page || 'details' }}.tab</a>
             }
         }
     } @else {
-        <a class="navbar-item" routerLink="login" routerLinkActive="is-active" (click)="goToContent()" translate>pages.login.tab</a>
+        <a class="navbar-item" routerLink="login" routerLinkActive="is-active" translate>pages.login.tab</a>
     }
 </div>
 
 <main>
-    @if (!isCompact()) {
-        <section>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="is-heading">
-                    <!-- <h1 translate>pages.landing.names</h1>
-                    <h2 translate>pages.landing.dates</h2>
-                    <h3 translate>pages.landing.location</h3> -->
-                </div>
-                <img src="assets/images/robandresh.jpeg" width="250" alt="Rob & Resh" />
-            </div>
-        </section>
-    }
-
     <div id="page-content"></div>
 
-    <!-- <div class="separator">
-        <div class="overlay"></div>
-    </div> -->
-
-    <div class="page-outlet">
-        <router-outlet />
-    </div>
+    <router-outlet />
 </main>
 
 <footer>

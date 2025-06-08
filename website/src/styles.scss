@@ -2,8 +2,7 @@
 @import 'bulma/css/bulma.css';
 
 // https://fonts.google.com/
-@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Tangerine:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Radley:ital@0;1&family=Tangerine:wght@400;700&display=swap');
 :root {
     --bulma-primary-h: 283deg;
     --bulma-primary-l: 80%;
@@ -13,6 +12,14 @@
 body {
     background: url('assets/images/dust_scratches.png') center center repeat;
     padding: 0;
+}
+
+.page {
+    padding: 2rem 0;
+
+    @media screen and (max-width: 768px) {
+        padding: 2rem;
+    }
 }
 
 #site-loading {
