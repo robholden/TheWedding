@@ -1,0 +1,108 @@
+// https://bulma.io/documentation/components
+@import 'bulma/css/bulma.css';
+
+// https://fonts.google.com/
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Radley:ital@0;1&family=Tangerine:wght@400;700&display=swap');
+:root {
+    --bulma-primary-h: 283deg;
+    --bulma-primary-l: 80%;
+    --bulma-family-primary: 'Radley', sans-serif;
+}
+
+body {
+    background: url('assets/images/dust_scratches.png') center center repeat;
+    padding: 0;
+}
+
+.page {
+    padding: 2rem 0;
+
+    @media screen and (max-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.a-page {
+    .content {
+        p {
+            font-size: 1.05rem;
+        }
+    }
+
+    .separator {
+        width: 100%;
+
+        img {
+            height: 50px;
+            max-height: none;
+            width: auto;
+            filter: invert(12%) sepia(33%) saturate(4206%) hue-rotate(318deg) brightness(82%) contrast(110%);
+            margin: -1rem 0 2rem;
+        }
+
+        &.flipped {
+            img {
+                transform: rotate(180deg);
+                margin: 0 0 2rem;
+            }
+        }
+    }
+
+    .a-title {
+        padding: 7vh 0;
+        // background: radial-gradient(circle, rgba(122, 6, 32, 0.9) 71%, rgba(210, 177, 144, 1) 100%);
+        // background-color: #fff;
+
+        h2,
+        h3 {
+            // font-family: 'Radley', serif;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 3.75rem;
+            color: #50051b;
+        }
+
+        h3 {
+            font-size: 3rem;
+            margin: 0.5rem 0 2rem;
+            color: #d5b61a;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+    }
+
+    .a-sub-title {
+        background-color: #50051b;
+        color: #fff;
+        padding: 3vh 0;
+    }
+
+    .a-text {
+        padding: 3vh 0;
+
+        &.is-red {
+            background-color: #50051b;
+            color: #fff;
+            h3,
+            h4 {
+                color: #fff;
+            }
+        }
+
+        &:not(.is-red) {
+            h3,
+            h4 {
+                color: #7a0620;
+            }
+        }
+    }
+
+    hr {
+        background-color: black;
+    }
+}

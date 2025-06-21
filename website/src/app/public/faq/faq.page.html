@@ -1,8 +1,0 @@
-<div class="page container is-max-tablet has-text-centered">
-    @for (q of 'pages.faq.questions' | translate; track q) {
-        <div class="faq-question" [class.mt-4]="!$first">
-            <div class="is-size-4">{{ q.question }}</div>
-            <p>{{ q.answer }}</p>
-        </div>
-    }
-</div>

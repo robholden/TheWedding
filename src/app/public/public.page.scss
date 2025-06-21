@@ -1,0 +1,121 @@
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    color: white;
+    z-index: 999;
+    background: #50051b; //rgba(0, 0, 0, 0.65);
+    font-weight: bold;
+    padding: 1rem 0;
+
+    .container {
+        padding: 0.5rem 0;
+    }
+
+    button {
+        display: none;
+    }
+
+    .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+
+        &.is-active {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        // @media screen and (max-width: 1024px) {
+        //     font-size: 1rem;
+        //     padding: 0.5rem 0.5rem;
+        // }
+    }
+
+    h1 {
+        font-family: 'Tangerine', cursive;
+        font-size: 2.5rem;
+        text-align: center;
+        line-height: 1;
+
+        a {
+            color: white;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .nav-link {
+            display: none;
+        }
+
+        h1 {
+            line-height: 1.2;
+
+            span {
+                display: none;
+            }
+        }
+
+        button {
+            display: block;
+        }
+    }
+}
+
+.navbar-menu {
+    position: fixed;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background: #4a1b25;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+footer {
+    padding: 1rem;
+    background: #50051b; //radial-gradient(circle, rgba(238, 238, 238, 1) 0%, rgba(153, 153, 153, 1) 90%);
+    color: white;
+    // background: url('../../assets/images/header2.jpeg') center center no-repeat;
+    // background-size: cover;
+    margin-top: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        padding-right: 2rem;
+        padding-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding-right: 1rem;
+
+        h1 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 5px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
