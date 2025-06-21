@@ -1,0 +1,14 @@
+.features {
+    img {
+        margin-left: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+
+        img {
+            margin-top: 1rem;
+            margin-left: 0;
+        }
+    }
+}

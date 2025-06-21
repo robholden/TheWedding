@@ -22,6 +22,13 @@ body {
     }
 }
 
+.line-break {
+    height: 5px;
+    background-color: #50051b;
+    width: 100%;
+    margin: 2rem 0;
+}
+
 .a-page {
     .content {
         p {
@@ -49,7 +56,7 @@ body {
     }
 
     .a-title {
-        padding: 7vh 0;
+        padding: 7vh 2rem;
         // background: radial-gradient(circle, rgba(122, 6, 32, 0.9) 71%, rgba(210, 177, 144, 1) 100%);
         // background-color: #fff;
 
@@ -74,6 +81,34 @@ body {
         p {
             font-size: 1.25rem;
         }
+
+        &.no-sub h2 {
+            margin-bottom: 2rem;
+        }
+
+        &.is-red {
+            background-color: #50051b;
+            color: #fff;
+
+            --bulma-strong-color: #fff;
+
+            h2 {
+                color: #fff;
+            }
+
+            .separator {
+                // white filter on img
+                img {
+                    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+                }
+            }
+        }
+
+        &:not(.is-red) {
+            h2 {
+                color: #7a0620;
+            }
+        }
     }
 
     .a-sub-title {
@@ -83,7 +118,7 @@ body {
     }
 
     .a-text {
-        padding: 3vh 0;
+        padding: 3vh 2rem;
 
         &.is-red {
             background-color: #50051b;
