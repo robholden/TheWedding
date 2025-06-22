@@ -18,20 +18,11 @@ export default class BioPage implements OnInit {
     private loadSwiper(): void {
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 'auto',
-            spaceBetween: 0, //if you set the value other than 0, you will get some bug when viewport is resized, use CSS instead
+            spaceBetween: 10,
             centeredSlides: true,
             grabCursor: true,
-            // loop: 'auto',
-            // parallax: true,
-            // effect: 'coverflow',
-            // coverflowEffect: {
-            //     rotate: 0,
-            //     stretch: 10,
-            //     depth: 10,
-            //     scale: 0.8,
-            //     modifier: 1,
-            //     slideShadows: false,
-            // },
+            loop: 'auto',
+            parallax: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
