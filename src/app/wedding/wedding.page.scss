@@ -1,0 +1,6 @@
+.a-text img {
+    @media screen and (max-width: 600px) {
+        display: block;
+        float: none;
+    }
+}
