@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'wed-root',
@@ -18,9 +18,7 @@ export class AppComponent {
 
         // After navigation, scroll to the top of the page
         router.events.subscribe((event) => {
-            console.log(event);
-
-            if (event.constructor.name !== 'NavigationEnd') {
+            if (!(event instanceof NavigationEnd)) {
                 return;
             }
 
@@ -29,7 +27,8 @@ export class AppComponent {
                 return;
             }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            this.menuOpen = false;
+            setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
         });
     }
 }
