@@ -31,11 +31,6 @@ export const routes: Routes = [
         loadComponent: () => import('./rsvp/rsvp.page'),
     },
     {
-        path: 'gallery',
-        title: 'Gallery',
-        loadComponent: () => import('./gallery/gallery.page'),
-    },
-    {
         path: '**',
         redirectTo: '/',
         pathMatch: 'full',

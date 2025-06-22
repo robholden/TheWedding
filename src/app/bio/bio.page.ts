@@ -19,10 +19,10 @@ export default class BioPage implements OnInit {
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 'auto',
             spaceBetween: 10,
-            centeredSlides: true,
+            // centeredSlides: true,
             grabCursor: true,
-            loop: 'auto',
-            parallax: true,
+            // loop: 'auto',
+            // parallax: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
