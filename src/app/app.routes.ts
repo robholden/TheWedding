@@ -31,6 +31,11 @@ export const routes: Routes = [
         loadComponent: () => import('./rsvp/rsvp.page'),
     },
     {
+        path: 'registry',
+        title: 'Registry',
+        loadComponent: () => import('./registry/registry.page'),
+    },
+    {
         path: '**',
         redirectTo: '/',
         pathMatch: 'full',
