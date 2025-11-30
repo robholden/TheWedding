@@ -95,7 +95,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
         var eachResponses = new[] { new { Yes = false, Responses = isNoResponses }, new { Yes = true, Responses = isYesResponses } };
         foreach (var rg in eachResponses.Where(rg => rg.Responses.Any()))
         {
-            html += $"<table class={(rg.Yes ? "yes" : "no")}><tr><th>User Id</th>";
+            html += $"<table class={(rg.Yes ? "yes" : "no")}><tr><th>User Id</th><th>Date Submitted</th>";
 
             var questions = rg.Responses.SelectMany(r => r.Answers).Select(a => a.Question).Distinct();
             foreach (var question in questions)
@@ -106,7 +106,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
 
             foreach (var response in rg.Responses)
             {
-                html += $"<tr><td>{response.UserId}</td>";
+                html += $"<tr><td>{response.UserId}</td><td>{response.Answers.Max(a => a.SubmittedAt)}</td>";
                 foreach (var question in questions)
                 {
                     var answer = response.Answers.FirstOrDefault(a => a.Question == question)?.Answer ?? "";

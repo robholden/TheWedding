@@ -9,7 +9,7 @@ export type QuestionAnswer = {
     userId: string;
     question: string;
     answer: string;
-    category: string;
+    category: 'User' | 'Fort Kochi' | 'Cruise';
     submittedAt?: Date;
 };
 

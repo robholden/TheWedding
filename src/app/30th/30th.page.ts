@@ -164,13 +164,13 @@ export default class ThirtiethPage {
             return;
         }
 
-        const ud = answers.filter((a) => a.category === 'user');
+        const ud = answers.filter((a) => a.category === 'User');
         ud.forEach((a) => this.userForm.patchValue({ [a.question]: this.tryParseAnswer(a.answer) }));
 
-        const fk = answers.filter((a) => a.category === 'fort-kochi');
+        const fk = answers.filter((a) => a.category === 'Fort Kochi');
         fk.forEach((a) => this.fortKochiForm.patchValue({ [a.question]: this.tryParseAnswer(a.answer) }));
 
-        const cruise = answers.filter((a) => a.category === 'cruise');
+        const cruise = answers.filter((a) => a.category === 'Cruise');
         cruise.forEach((a) => this.cruiseForm.patchValue({ [a.question]: this.tryParseAnswer(a.answer) }));
 
         this.pending = false;

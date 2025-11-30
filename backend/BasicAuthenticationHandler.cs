@@ -27,12 +27,12 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         _settings = settings.Value;
     }
 
-    protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
+    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         if (!Request.Headers.ContainsKey("Authorization"))
         {
             Response.Headers.Append("WWW-Authenticate", "Basic");
-            return AuthenticateResult.Fail("Missing Authorization Header");
+            return Task.FromResult(AuthenticateResult.Fail("Missing Authorization Header"));
         }
 
         try
@@ -46,13 +46,13 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
             // Validate credentials (replace with your own logic)
             if (username != _settings.Username || password != _settings.Password)
             {
-                return AuthenticateResult.Fail("Invalid Username or Password");
+                return Task.FromResult(AuthenticateResult.Fail("Invalid Username or Password"));
             }
         }
         catch
         {
             Response.Headers.Append("WWW-Authenticate", "Basic");
-            return AuthenticateResult.Fail("Invalid Authorization Header");
+            return Task.FromResult(AuthenticateResult.Fail("Invalid Authorization Header"));
         }
 
         var claims = new[] { new Claim(ClaimTypes.Name, "admin") };
@@ -60,6 +60,6 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         var principal = new ClaimsPrincipal(identity);
         var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-        return AuthenticateResult.Success(ticket);
+        return Task.FromResult(AuthenticateResult.Success(ticket));
     }
 }
