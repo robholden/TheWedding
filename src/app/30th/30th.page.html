@@ -1,0 +1,338 @@
+<div class="a-page">
+    <div class="content">
+        <section class="a-title">
+            <div class="page container is-max-tablet has-text-centered">
+                <div class="separator">
+                    <img src="assets/images/divider.svg" />
+                </div>
+
+                <h2>30th Event Questionnaire</h2>
+                <h3></h3>
+
+                <div class="separator flipped">
+                    <img src="assets/images/divider.svg" />
+                </div>
+
+                @if (!submitted || !saveCode) {
+                    <div class="form-wrapper">
+                        <form novalidate [formGroup]="userForm">
+                            <div class="question-answer">
+                                <label for="qa-email" class="label">Email Address</label>
+                                <input id="qa-email" class="input" [class.is-danger]="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)" formControlName="email" />
+
+                                @if (userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)) {
+                                    @if (userForm.controls.email.errors?.['required']) {
+                                        <small class="has-text-danger">Email is required.</small>
+                                    }
+                                    @if (userForm.controls.email.errors?.['email']) {
+                                        <small class="has-text-danger">Please enter a valid email address.</small>
+                                    }
+                                }
+                            </div>
+                        </form>
+                    </div>
+
+                    @if (!cruiseOnly) {
+                        <div class="form-wrapper">
+                            <button type="button" class="minimise-button" (click)="showFortKochi = !showFortKochi">
+                                {{ showFortKochi ? '&times;' : 'i' }}
+                            </button>
+
+                            <div class="info">
+                                <h3 [class.minimal]="!showFortKochi">Fort Kochi Tour</h3>
+
+                                @if (showFortKochi) {
+                                    <table class="table is-fullwidth is-striped is-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Activity</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Depart from Hotel at <strong>9am</strong></td>
+                                                <td>35-minute drive to Heritage Town, Fort Kochi</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>St. Francis Church</td>
+                                                <td>Oldest European church in India; Vasco da Gama was originally buried here</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Chinese Fishing Nets</td>
+                                                <td>Iconic nets believed to have been introduced by ancient Chinese traders</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Dutch Palace at Mattancherry</td>
+                                                <td>Famous for murals depicting stories from the Ramayana and Mahabharata</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Jewish Synagogue at Jew Town</td>
+                                                <td>Historic synagogue in the old Jewish quarter</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Walk Through Jew Street</td>
+                                                <td>Leisurely walk past spice shops, antique stores, and curios</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Seafood Buffet Lunch</td>
+                                                <td>Enjoy Cochin’s fresh coastal flavors</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Drive Back to Hotel at <strong>2pm</strong></td>
+                                                <td>35-minute return journey</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                }
+                            </div>
+
+                            <form novalidate [formGroup]="userForm">
+                                <div class="question-answer">
+                                    <label class="label is-checkbox">
+                                        <input type="checkbox" formControlName="fortKochi" />
+                                        &nbsp; I will be joining the Fort Kochi tour.
+                                    </label>
+                                </div>
+                            </form>
+
+                            <form novalidate [formGroup]="fortKochiForm">
+                                @if (!userForm.value.fortKochi) {
+                                    <div class="question-answer">
+                                        <label for="fk-reason" class="label">Reason for not joining</label>
+                                        <textarea
+                                            id="fk-reason"
+                                            class="textarea"
+                                            [class.is-danger]="fortKochiReasonForm.controls.reason.invalid && (fortKochiReasonForm.controls.reason.dirty || fortKochiReasonForm.controls.reason.touched)"
+                                            rows="3"
+                                            formControlName="reason"
+                                        ></textarea>
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'reason', form: fortKochiForm }" />
+                                    </div>
+                                } @else {
+                                    <!-- Other for generic info -->
+                                    <div class="question-answer">
+                                        <label for="fk-other" class="label">Any other information we should know?</label>
+                                        <textarea
+                                            id="fk-other"
+                                            class="textarea"
+                                            [class.is-danger]="fortKochiJoinForm.controls.other.invalid && (fortKochiJoinForm.controls.other.dirty || fortKochiJoinForm.controls.other.touched)"
+                                            rows="3"
+                                            formControlName="other"
+                                        ></textarea>
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'other', form: fortKochiJoinForm }" />
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    }
+
+                    <div class="form-wrapper">
+                        <button type="button" class="minimise-button" (click)="showCruise = !showCruise">
+                            {{ showCruise ? '&times;' : 'i' }}
+                        </button>
+
+                        <div class="info">
+                            <h3 [class.minimal]="!showCruise">Cruise</h3>
+                            @if (showCruise) {
+                                <p>
+                                    Join us for an unforgettable experience! Embark on a luxurious cruise filled with breathtaking views, exquisite dining, and endless entertainment. Whether you're seeking relaxation or adventure, our cruise has something
+                                    for everyone. Don't miss out on this incredible journey—reserve your spot today!
+                                </p>
+                            }
+                        </div>
+
+                        <form novalidate [formGroup]="userForm">
+                            <div class="question-answer">
+                                <label class="label is-checkbox">
+                                    <input type="checkbox" formControlName="cruise" />
+                                    &nbsp; I will be joining the Cruise.
+                                </label>
+                            </div>
+                        </form>
+
+                        <form novalidate [formGroup]="cruiseForm">
+                            @if (!userForm.value.cruise) {
+                                <div class="question-answer">
+                                    <label for="c-reason" class="label">Reason for not joining</label>
+                                    <textarea
+                                        id="c-reason"
+                                        class="textarea"
+                                        [class.is-danger]="cruiseReasonForm.controls.reason.invalid && (cruiseReasonForm.controls.reason.dirty || cruiseReasonForm.controls.reason.touched)"
+                                        rows="3"
+                                        formControlName="reason"
+                                    ></textarea>
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'reason', form: cruiseForm }" />
+                                </div>
+                            } @else {
+                                <div class="box">The following information is required for all cruise attendees as per the cruise operator's regulations.</div>
+
+                                <!-- Full Name -->
+                                <div class="question-answer">
+                                    <label for="c-fullname" class="label">Full Name</label>
+                                    <input id="c-fullname" class="input" [class.is-danger]="cruiseJoinForm.controls.fullName.invalid && (cruiseJoinForm.controls.fullName.dirty || cruiseJoinForm.controls.fullName.touched)" formControlName="fullName" />
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'fullName', form: cruiseForm }" />
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="question-answer">
+                                    <label for="c-gender" class="label">Gender</label>
+                                    <select id="c-gender" class="input" [class.is-danger]="cruiseJoinForm.controls.gender.invalid && (cruiseJoinForm.controls.gender.dirty || cruiseJoinForm.controls.gender.touched)" formControlName="gender">
+                                        <option [ngValue]="null" disabled selected>Choose Gender</option>
+                                        @for (gender of genderList; track $index) {
+                                            <option [ngValue]="gender">{{ gender }}</option>
+                                        }
+                                    </select>
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'gender', form: cruiseForm }" />
+                                </div>
+
+                                <!-- Age -->
+                                <div class="question-answer">
+                                    <label for="c-age" class="label">Age</label>
+                                    <input type="number" id="c-age" class="input" [class.is-danger]="cruiseJoinForm.controls.age.invalid && (cruiseJoinForm.controls.age.dirty || cruiseJoinForm.controls.age.touched)" formControlName="age" />
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'age', form: cruiseForm }" />
+                                </div>
+
+                                <!-- Id Type -->
+                                @if (!cruiseJoinForm.value.idType) {
+                                    <div class="question-answer">
+                                        <label for="c-id-type" class="label">Id Type</label>
+                                        <select
+                                            id="c-id-type"
+                                            class="input"
+                                            [class.is-danger]="cruiseJoinForm.controls.idType.invalid && (cruiseJoinForm.controls.idType.dirty || cruiseJoinForm.controls.idType.touched)"
+                                            formControlName="idType"
+                                            placeholder="Choose Type"
+                                        >
+                                            <option [ngValue]="null" disabled selected>Choose Type</option>
+                                            @for (type of idTypeList; track $index) {
+                                                <option [ngValue]="type">{{ type }}</option>
+                                            }
+                                        </select>
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'idType', form: cruiseForm }" />
+                                    </div>
+                                }
+
+                                <!-- Id Number -->
+                                @else {
+                                    <div class="question-answer">
+                                        <label for="c-id-number" class="label">
+                                            {{ cruiseJoinForm.value.idType }}
+                                            <button type="button" class="tag is-dark" (click)="cruiseJoinForm.patchValue({ idType: null, idValue: null })">Change</button>
+                                        </label>
+                                        <input id="c-id-number" class="input" [class.is-danger]="cruiseJoinForm.controls.idValue.invalid && (cruiseJoinForm.controls.idValue.dirty || cruiseJoinForm.controls.idValue.touched)" formControlName="idValue" />
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'idValue', form: cruiseForm }" />
+                                    </div>
+                                }
+
+                                <!-- Foreigner Type -->
+                                @if (!cruiseJoinForm.value.foreignerId) {
+                                    <div class="question-answer">
+                                        <label for="c-foreigner-id" class="label">Foreigner Id</label>
+                                        <select
+                                            id="c-foreigner-id"
+                                            class="input"
+                                            [class.is-danger]="cruiseJoinForm.controls.foreignerId.invalid && (cruiseJoinForm.controls.foreignerId.dirty || cruiseJoinForm.controls.foreignerId.touched)"
+                                            formControlName="foreignerId"
+                                            placeholder="Choose Type"
+                                        >
+                                            <option [ngValue]="null" disabled selected>Choose Type</option>
+                                            @for (type of foreignIdList; track $index) {
+                                                <option [ngValue]="type">{{ type }}</option>
+                                            }
+                                        </select>
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'foreignerId', form: cruiseForm }" />
+                                    </div>
+                                } @else {
+                                    <div class="question-answer">
+                                        <label for="c-foreigner-no" class="label">
+                                            {{ cruiseJoinForm.value.foreignerId }}
+                                            <button type="button" class="tag is-dark" (click)="cruiseJoinForm.patchValue({ foreignerId: null, foreignerNo: null })">Change</button>
+                                        </label>
+                                        <input
+                                            id="c-foreigner-no"
+                                            class="input"
+                                            [class.is-danger]="cruiseJoinForm.controls.foreignerNo.invalid && (cruiseJoinForm.controls.foreignerNo.dirty || cruiseJoinForm.controls.foreignerNo.touched)"
+                                            formControlName="foreignerNo"
+                                        />
+
+                                        <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'foreignerNo', form: cruiseForm }" />
+                                    </div>
+                                }
+
+                                <!-- Meal Preference -->
+                                <div class="question-answer">
+                                    <label for="c-meal-type" class="label">Meal Preference</label>
+                                    <select id="c-meal-type" class="input" [class.is-danger]="cruiseJoinForm.controls.mealType.invalid && (cruiseJoinForm.controls.mealType.dirty || cruiseJoinForm.controls.mealType.touched)" formControlName="mealType">
+                                        <option [ngValue]="null" disabled selected>Choose Meal Preference</option>
+                                        @for (meal of mealTypeList; track $index) {
+                                            <option [ngValue]="meal">{{ meal }}</option>
+                                        }
+                                    </select>
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'mealType', form: cruiseForm }" />
+                                </div>
+
+                                <!-- Other for generic info -->
+                                <div class="question-answer">
+                                    <label for="c-other" class="label">Any other information we should know?</label>
+                                    <textarea
+                                        id="c-other"
+                                        class="textarea"
+                                        [class.is-danger]="cruiseJoinForm.controls.other.invalid && (cruiseJoinForm.controls.other.dirty || cruiseJoinForm.controls.other.touched)"
+                                        rows="3"
+                                        formControlName="other"
+                                    ></textarea>
+
+                                    <ng-container [ngTemplateOutlet]="ctrlErrors" [ngTemplateOutletContext]="{ control: 'other', form: cruiseForm }" />
+                                </div>
+                            }
+                        </form>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="button" class="button is-primary" (click)="submit()">Submit</button>
+                } @else {
+                    <div class="notification is-primary">
+                        <h4 class="is-size-4">Your responses have been submitted successfully!</h4>
+                        <p>Please use the following link to edit your responses later:</p>
+                        <div class="submitted-url">
+                            <a [href]="submittedUrl" target="_blank">{{ submittedUrl }}</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+<ng-template #ctrlErrors let-control="control" let-form="form">
+    @if (form.controls[control].invalid && (form.controls[control].dirty || form.controls[control].touched)) {
+        @if (form.controls[control].errors?.['required']) {
+            <small class="has-text-danger">Field is required.</small>
+        }
+        @if (form.controls[control].errors?.['minlength']) {
+            <small class="has-text-danger">Field is too short.</small>
+        }
+        @if (form.controls[control].errors?.['maxlength']) {
+            <small class="has-text-danger">Field is too long.</small>
+        }
+    }
+</ng-template>

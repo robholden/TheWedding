@@ -36,6 +36,20 @@ export const routes: Routes = [
         loadComponent: () => import('./registry/registry.page'),
     },
     {
+        path: '30th/:id',
+        title: '30th',
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./30th/30th.page'),
+            },
+            {
+                path: ':saveCode',
+                loadComponent: () => import('./30th/30th.page'),
+            },
+        ],
+    },
+    {
         path: '**',
         redirectTo: '/',
         pathMatch: 'full',
