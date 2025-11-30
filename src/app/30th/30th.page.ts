@@ -7,7 +7,7 @@ import { BackendError, BackendService, QuestionAnswer } from './backend.service'
 
 const genders = ['Male', 'Female', 'Other'] as const;
 const idTypes = ['Passport No.', 'Aadhaar No.', 'Driving License No.', 'Voters Id', 'Birth Certificate No.'] as const;
-const foreignIds = ['VISA No.', 'OCI No.'];
+const foreignIds = ['VISA No. (ETA)', 'OCI No.'];
 const mealTypes = ['Non-Vegetarian', 'Vegetarian'] as const;
 
 type Gender = (typeof genders)[number];
@@ -28,9 +28,10 @@ export default class ThirtiethPage {
     pending: boolean;
     cruiseOnly: boolean;
     saveCode: string;
+    missing: boolean = false;
 
-    showFortKochi: boolean = true;
-    showCruise: boolean = true;
+    showFortKochi: boolean = false;
+    showCruise: boolean = false;
 
     readonly genderList = genders;
     readonly idTypeList = idTypes;
@@ -39,8 +40,8 @@ export default class ThirtiethPage {
 
     readonly userForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
-        fortKochi: new FormControl<boolean>(true),
-        cruise: new FormControl<boolean>(true),
+        fortKochi: new FormControl<boolean>(null, [Validators.required]),
+        cruise: new FormControl<boolean>(null, [Validators.required]),
     });
 
     readonly fortKochiReasonForm = new FormGroup({
@@ -62,7 +63,7 @@ export default class ThirtiethPage {
         idType: new FormControl<IdType | null>(null, [Validators.required]),
         idValue: new FormControl<string>('', [Validators.required, Validators.maxLength(100)]),
         foreignerId: new FormControl<ForeignId | null>(null, [Validators.required]),
-        foreignerNo: new FormControl<string>('', [Validators.maxLength(100)]),
+        foreignerNo: new FormControl<string>('', [Validators.maxLength(100), Validators.required]),
         mealType: new FormControl<MealType | null>(null, [Validators.required]),
         other: new FormControl<string>('', [Validators.maxLength(500)]),
     });
@@ -99,11 +100,13 @@ export default class ThirtiethPage {
     }
 
     async submit() {
+        this.missing = false;
         this.userForm.markAllAsTouched();
         this.fortKochiForm.markAllAsTouched();
         this.cruiseForm.markAllAsTouched();
 
         if (this.userForm.invalid || this.cruiseForm.invalid || (!this.cruiseOnly && this.fortKochiForm.invalid)) {
+            this.missing = true;
             return;
         }
 

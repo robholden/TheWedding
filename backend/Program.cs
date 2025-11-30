@@ -65,14 +65,15 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
 
     var html = @"<html><head>
     <title>Responses</title>
+    <link href='https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap' rel='stylesheet'>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
+        body { font-family: 'Radley', sans-serif; margin: 20px; }
         h1 { color: #333; font-size: 24px; margin: 40px 0 5px; }
         table { border-collapse: collapse; border: none; margin-top: 10px; }
         th { text-transform: capitalize; }
         th, td { padding: 8px; border: 1px solid #999; text-align: left;  }
-        table.yes th { background-color: #28a745ff; color: white; border-color: #1b742fff; }
-        table.no th { background-color: #dc3545ff; color: white; border-color: #a72532ff; }
+        table.yes th { background-color: #4d7d58ff; color: white; border-color: #2e4c35ff; }
+        table.no th { background-color: #984049ff; color: white; border-color: #6a2b32ff; }
 
     </style>
     </head><body>";

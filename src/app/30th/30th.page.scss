@@ -34,9 +34,21 @@
     text-align: left;
     font-size: 1.1em;
 
-    &:not(:last-child) {
+    &:not(:last-child),
+    &.with-margin {
         margin-bottom: 1em;
     }
+}
+
+small {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8em;
+}
+
+i {
+    color: #7a0620;
+    font-weight: bold;
 }
 
 .label {
@@ -53,6 +65,14 @@
     &.is-checkbox {
         color: #7a0620;
         margin-bottom: 1em;
+    }
+}
+
+.select {
+    width: 100%;
+
+    select {
+        width: 100%;
     }
 }
 
