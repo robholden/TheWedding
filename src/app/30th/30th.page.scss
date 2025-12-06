@@ -19,6 +19,21 @@
     color: white;
 }
 
+.form-container.with-border {
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: #7a0620;
+
+    h4 {
+        color: white;
+        margin: 0;
+    }
+
+    .form-wrapper:last-child {
+        margin-bottom: 0;
+    }
+}
+
 .info {
     margin-bottom: 1em;
     text-align: left;
@@ -27,6 +42,27 @@
         font-size: 2em !important;
         margin-top: -0.25rem !important;
         margin-bottom: 0 !important;
+    }
+
+    .picture-text {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+
+        img {
+            width: 40%;
+            max-width: 200px;
+            height: auto;
+            margin: auto 0;
+            flex-shrink: 1;
+            border-radius: 4px;
+        }
+
+        ul {
+            flex-grow: 1;
+            padding: 0;
+            margin: 0 0 0 1rem;
+        }
     }
 }
 
@@ -98,7 +134,9 @@ i {
 .table {
     margin-top: 0.75em;
 
-    td:first-child {
-        white-space: nowrap;
+    @media screen and (min-width: 768px) {
+        td:first-child {
+            white-space: nowrap;
+        }
     }
 }
