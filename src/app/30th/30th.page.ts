@@ -7,7 +7,7 @@ import { BackendError, BackendService, QuestionAnswer } from './backend.service'
 
 const genders = ['Male', 'Female', 'Other'] as const;
 const idTypes = ['Passport No.', 'Aadhaar No.', 'Driving License No.', 'Voters Id', 'Birth Certificate No.'] as const;
-const foreignIds = ['VISA No. (ETA)', 'OCI No.'];
+const foreignIds = ['Not Applicable', 'VISA No. (ETA)', 'OCI No.'];
 const mealTypes = ['Non-Vegetarian', 'Vegetarian'] as const;
 
 type Gender = (typeof genders)[number];
@@ -118,7 +118,7 @@ export default class ThirtiethPage {
                 const form: UserForms = {
                     data: new FormGroup({
                         name: new FormControl<string>('', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]),
-                        fortKochi: new FormControl<boolean>(null, [Validators.required]),
+                        fortKochi: new FormControl<boolean>(null, this.cruiseOnly ? [] : [Validators.required]),
                         cruise: new FormControl<boolean>(null, [Validators.required]),
                     }),
                     fortKochi: {
@@ -145,6 +145,12 @@ export default class ThirtiethPage {
                         }),
                     },
                 };
+
+                form.cruise.join.controls.foreignerId.valueChanges.subscribe((value) => {
+                    if (value === 'Not Applicable') form.cruise.join.controls.foreignerNo.disable();
+                    else form.cruise.join.controls.foreignerNo.enable();
+                });
+
                 this.userFormMap()[index] = form;
             });
         });
@@ -205,6 +211,7 @@ export default class ThirtiethPage {
 
         const answers: QuestionAnswer[] = [];
         const users = this.users();
+        const email = this.mainForm.controls.email.value;
         users.forEach((_, index) => {
             const form = this.userFormMapLookup()[index];
 
@@ -215,6 +222,7 @@ export default class ThirtiethPage {
                     answer: typeof answer === 'string' ? answer : JSON.stringify(answer),
                     category: 'User',
                     userId: form.data.value.name,
+                    emailId: email,
                 });
             });
 
@@ -226,6 +234,7 @@ export default class ThirtiethPage {
                         answer: typeof answer === 'string' ? answer : JSON.stringify(answer),
                         category: 'Fort Kochi',
                         userId: form.data.value.name,
+                        emailId: email,
                     });
                 });
             }
@@ -237,6 +246,7 @@ export default class ThirtiethPage {
                     answer: typeof answer === 'string' ? answer : JSON.stringify(answer),
                     category: 'Cruise',
                     userId: form.data.value.name,
+                    emailId: email,
                 });
             });
         });
@@ -261,6 +271,10 @@ export default class ThirtiethPage {
             this.pending = false;
             return;
         }
+
+        // Get email from answers
+        const emailAnswer = answers?.[0]?.emailId;
+        if (emailAnswer) this.mainForm.controls.email.setValue(emailAnswer);
 
         // Get unique users from answers
         const users = Array.from(new Set(answers.map((a) => a.userId)));

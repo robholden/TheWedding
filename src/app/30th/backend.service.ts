@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 
 export type QuestionAnswer = {
     id: number;
+    emailId: string;
     userId: string;
     question: string;
     answer: string;

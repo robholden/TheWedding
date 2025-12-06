@@ -60,6 +60,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
         .Select(g => new
         {
             UserId = g.Key,
+            Emails = g.Select(qa => qa.EmailId).Distinct(),
             Answers = g.Where(q => q.SaveCode == g.OrderByDescending(qa => qa.SubmittedAt).First().SaveCode).ToList(),
         });
 
@@ -88,6 +89,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
                 .Select(g => new
                 {
                     g.UserId,
+                    g.Emails,
                     Answers = g.Answers.Where(qa => qa.Category == cat),
                 });
         var isNoResponses = responses.Where(r => r.Answers.Any(a => a.Question == "reason"));
@@ -96,7 +98,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
         var eachResponses = new[] { new { Yes = false, Responses = isNoResponses }, new { Yes = true, Responses = isYesResponses } };
         foreach (var rg in eachResponses.Where(rg => rg.Responses.Any()))
         {
-            html += $"<table class={(rg.Yes ? "yes" : "no")}><tr><th>User Id</th><th>Date Submitted</th>";
+            html += $"<table class={(rg.Yes ? "yes" : "no")}><tr><th>Email</th><th>User Id</th><th>Date Submitted</th>";
 
             var questions = rg.Responses.SelectMany(r => r.Answers).Select(a => a.Question).Distinct();
             foreach (var question in questions)
@@ -107,7 +109,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
 
             foreach (var response in rg.Responses)
             {
-                html += $"<tr><td>{response.UserId}</td><td>{response.Answers.Max(a => a.SubmittedAt)}</td>";
+                html += $"<tr><td>{string.Join(", ", response.Emails)}</td><td>{response.UserId}</td><td>{response.Answers.Max(a => a.SubmittedAt)}</td>";
                 foreach (var question in questions)
                 {
                     var answer = response.Answers.FirstOrDefault(a => a.Question == question)?.Answer ?? "";
