@@ -59,7 +59,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
     var groupedResponses = qas.GroupBy(qa => qa.UserId)
         .Select(g => new
         {
-            UserId = $"{g.Key} ({string.Join(", ", g.Select(q => q.SaveCode).Distinct())})",
+            UserId = g.Key,
             Emails = g.Select(qa => qa.EmailId).Distinct(),
             Answers = g.Where(q => q.SaveCode == g.OrderByDescending(qa => qa.SubmittedAt).First().SaveCode).ToList(),
         });
@@ -119,6 +119,15 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
             }
             html += "</table>";
         }
+    }
+
+    // List all save codes at the end with delete links
+    html += "<h1>All Save Codes</h1><table><tr><th>Save Code</th><th>Email</th></tr>";
+    var responsesByCode = qas.GroupBy(qa => qa.SaveCode);
+    foreach (var saveCode in responsesByCode.Select(g => g.Key))
+    {
+        var emails = responsesByCode.First(g => g.Key == saveCode).Select(qa => qa.EmailId).Distinct();
+        html += $"<tr><td>{saveCode}</td><td>{string.Join(", ", emails)}</td></tr>";
     }
 
     html += "</body></html>";
