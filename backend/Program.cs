@@ -59,7 +59,7 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
     var groupedResponses = qas.GroupBy(qa => qa.UserId)
         .Select(g => new
         {
-            UserId = g.Key,
+            UserId = $"{g.Key} ({string.Join(", ", g.Select(q => q.SaveCode).Distinct())})",
             Emails = g.Select(qa => qa.EmailId).Distinct(),
             Answers = g.Where(q => q.SaveCode == g.OrderByDescending(qa => qa.SubmittedAt).First().SaveCode).ToList(),
         });
@@ -125,6 +125,14 @@ app.MapGet("/api/admin/responses", [Authorize] async (AppDbContext db) =>
 
     // Change response output to text/html
     return Results.Content(html, "text/html");
+});
+
+app.MapGet("/api/admin/delete/{saveCode}", [Authorize] async (AppDbContext db, string saveCode) =>
+{
+    var existingAnswers = db.QuestionAnswers.Where(qa => qa.SaveCode == saveCode);
+    db.QuestionAnswers.RemoveRange(existingAnswers);
+    await db.SaveChangesAsync();
+    return Results.Ok();
 });
 
 app.MapGet("/api/answers/{saveCode}", async (AppDbContext db, string saveCode) =>

@@ -29,7 +29,7 @@ export class BackendService {
     }
 
     async submitAnswers(answers: QuestionAnswer[], saveCode: string) {
-        return await this.wrapObservableWithErrorCatch(this.http.post<{ saveCode: string }>(`${environment.apiUrl}/answers${saveCode ? `?id=${saveCode}` : ''}`, answers));
+        return await this.wrapObservableWithErrorCatch(this.http.post<{ saveCode: string }>(`${environment.apiUrl}/answers${saveCode ? `?saveCode=${saveCode}` : ''}`, answers));
     }
 
     private async wrapObservableWithErrorCatch<T>(observable: Observable<T>): Promise<T | BackendError> {
